@@ -52,5 +52,25 @@ namespace APR_jahresprojekt_podoprygora
                 return false;
             }
         }
+
+        public static bool usernameValidation(string username, string sqlconnection)
+        {
+            try
+            {
+                SqlConnection con = new SqlConnection(sqlconnection);
+                con.Open();
+                string cmdstring = "SELECT COUNT(*) FROM dbo.login WHERE username LIKE '" + username + "'";
+                SqlCommand cmd = new SqlCommand(cmdstring, con);
+                    cmd.Parameters.AddWithValue("username", username);
+                    int count = (int)cmd.ExecuteScalar();
+                    con.Close();
+                    return count > 0;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                return false;
+            }
+        }
     }
 }

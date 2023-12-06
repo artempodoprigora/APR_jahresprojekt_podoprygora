@@ -21,7 +21,22 @@ namespace APR_jahresprojekt_podoprygora
 
         private void forgotPassword_Load(object sender, EventArgs e)
         {
+            tb_username.Select();
+        }
 
+        private void btn_usernameCheck_Click(object sender, EventArgs e)
+        {
+            if (usernameValidation(tb_username.Text, constring))
+            {
+                this.btn_usernameCheck.Visible = false;
+                this.tb_newPassword.Visible = true;
+                this.lb_newPassword.Visible = true;
+                this.btn_change.Visible = true;
+            }
+            else
+            {
+                MessageBox.Show("Username doesn`t exist!");
+            }
         }
     }
 }

@@ -12,7 +12,7 @@ namespace APR_jahresprojekt_podoprygora
 
         private void form_login_Load(object sender, EventArgs e)
         {
-
+            tb_username.Select();
         }
 
         private void btn_login_Click(object sender, EventArgs e)
@@ -25,6 +25,17 @@ namespace APR_jahresprojekt_podoprygora
             {
                 MessageBox.Show("Fail!((");
             }
+        }
+
+        private void llb_forgotPassword_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            this.Hide();
+            form_forgotPassword form_ForgotPassword = new form_forgotPassword();
+            form_ForgotPassword.ShowDialog();
+        }
+        private void form_login_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Application.Exit();
         }
     }
 }
