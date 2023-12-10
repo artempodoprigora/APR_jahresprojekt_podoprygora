@@ -38,5 +38,26 @@ namespace APR_jahresprojekt_podoprygora
                 MessageBox.Show("Username doesn`t exist!");
             }
         }
+
+        private void btn_change_Click(object sender, EventArgs e)
+        {
+            if (tb_newPassword.Text.Length >= 8)
+            {
+                password_change(tb_username.Text, tb_newPassword.Text, constring);
+            }
+            else if(tb_newPassword.Text.Length < 8)
+            {
+                MessageBox.Show("Minimal password length is 8 symbols.");
+            }
+        }
+
+        private void form_forgotPassword_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            SqlConnection con = new SqlConnection(constring);
+            con.Close();
+            form_login form_Login = new form_login();
+            form_Login.ShowDialog();
+            this.Hide();
+        }
     }
 }

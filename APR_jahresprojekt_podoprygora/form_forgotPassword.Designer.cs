@@ -97,6 +97,7 @@
             btn_change.Text = "Confrim";
             btn_change.UseVisualStyleBackColor = true;
             btn_change.Visible = false;
+            btn_change.Click += btn_change_Click;
             // 
             // form_forgotPassword
             // 

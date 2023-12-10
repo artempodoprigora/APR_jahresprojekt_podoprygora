@@ -35,6 +35,8 @@ namespace APR_jahresprojekt_podoprygora
         }
         private void form_login_FormClosing(object sender, FormClosingEventArgs e)
         {
+            SqlConnection con = new SqlConnection(constring);
+            con.Close();
             Application.Exit();
         }
     }

@@ -33,18 +33,13 @@ namespace APR_jahresprojekt_podoprygora
             {
                 SqlConnection con = new SqlConnection(sqlconnection);
                 con.Open();
-                string cmdstring = "SELECT COUNT(*) FROM dbo.login WHERE username LIKE '" + username + "' AND password LIKE '" + password + "'";
-                using (SqlCommand cmd = new SqlCommand(cmdstring, con)
-                {
-                })
-                {
-                    cmd.Parameters.AddWithValue("username", username);
-                    cmd.Parameters.AddWithValue("password", password);
-
-                    int count = (int)cmd.ExecuteScalar();
-
+                SqlCommand cmd = new SqlCommand("SELECT COUNT(*) FROM dbo.login WHERE username LIKE '" + username + "' AND password LIKE '" + password + "'", con);
+                cmd.Parameters.AddWithValue("username", username);
+                cmd.Parameters.AddWithValue("password", password);
+                int count = (int)cmd.ExecuteScalar();
+                con.Close();
                     return count > 0;
-                }
+                
             }
             catch (Exception ex)
             {
@@ -59,8 +54,7 @@ namespace APR_jahresprojekt_podoprygora
             {
                 SqlConnection con = new SqlConnection(sqlconnection);
                 con.Open();
-                string cmdstring = "SELECT COUNT(*) FROM dbo.login WHERE username LIKE '" + username + "'";
-                SqlCommand cmd = new SqlCommand(cmdstring, con);
+                SqlCommand cmd = new SqlCommand("SELECT COUNT(*) FROM dbo.login WHERE username LIKE '" + username + "'", con);
                     cmd.Parameters.AddWithValue("username", username);
                     int count = (int)cmd.ExecuteScalar();
                     con.Close();
@@ -70,6 +64,22 @@ namespace APR_jahresprojekt_podoprygora
             {
                 MessageBox.Show(ex.Message);
                 return false;
+            }
+        }
+
+        public static void password_change(string username, string password, string sqlconnection)
+        {
+            try
+            {
+                SqlConnection con = new SqlConnection(sqlconnection);
+                con.Open();
+                SqlCommand cmd = new SqlCommand("UPDATE login SET password ='"+password+"' WHERE username = '"+username+"';", con);
+                cmd.ExecuteNonQuery();
+                con.Close();
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
             }
         }
     }
