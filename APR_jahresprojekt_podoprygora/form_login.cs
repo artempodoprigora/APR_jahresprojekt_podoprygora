@@ -1,5 +1,7 @@
 using static APR_jahresprojekt_podoprygora.Sqlmethods;
 using System.Data.SqlClient;
+using static System.Runtime.CompilerServices.RuntimeHelpers;
+using System.Reflection.Metadata;
 
 namespace APR_jahresprojekt_podoprygora
 {
@@ -38,6 +40,11 @@ namespace APR_jahresprojekt_podoprygora
             SqlConnection con = new SqlConnection(constring);
             con.Close();
             Application.Exit();
+        }
+
+        private void lb_password_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

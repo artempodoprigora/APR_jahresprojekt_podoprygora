@@ -38,8 +38,9 @@ namespace APR_jahresprojekt_podoprygora
                 MessageBox.Show("Username doesn`t exist!");
             }
         }
+        
 
-        private void btn_change_Click(object sender, EventArgs e)
+    private void btn_change_Click(object sender, EventArgs e)
         {
             if (tb_newPassword.Text.Length >= 8)
             {

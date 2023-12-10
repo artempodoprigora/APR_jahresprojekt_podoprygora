@@ -36,18 +36,20 @@
             lb_password = new Label();
             llb_forgotPassword = new LinkLabel();
             lb_gamename = new Label();
+            label1 = new Label();
             SuspendLayout();
             // 
             // tb_password
             // 
-            tb_password.Location = new Point(250, 190);
+            tb_password.Location = new Point(146, 217);
             tb_password.Name = "tb_password";
-            tb_password.Size = new Size(210, 31);
+            tb_password.Size = new Size(267, 31);
             tb_password.TabIndex = 0;
+            tb_password.UseSystemPasswordChar = true;
             // 
             // btn_login
             // 
-            btn_login.Location = new Point(348, 227);
+            btn_login.Location = new Point(301, 254);
             btn_login.Name = "btn_login";
             btn_login.Size = new Size(112, 34);
             btn_login.TabIndex = 1;
@@ -58,7 +60,7 @@
             // lb_username
             // 
             lb_username.AutoSize = true;
-            lb_username.Location = new Point(146, 153);
+            lb_username.Location = new Point(150, 122);
             lb_username.Name = "lb_username";
             lb_username.Size = new Size(91, 25);
             lb_username.TabIndex = 2;
@@ -68,7 +70,7 @@
             // 
             llb_signup.AutoSize = true;
             llb_signup.LinkColor = Color.Black;
-            llb_signup.Location = new Point(146, 236);
+            llb_signup.Location = new Point(519, 9);
             llb_signup.Name = "llb_signup";
             llb_signup.Size = new Size(75, 25);
             llb_signup.TabIndex = 3;
@@ -77,25 +79,26 @@
             // 
             // tb_username
             // 
-            tb_username.Location = new Point(250, 150);
+            tb_username.Location = new Point(146, 150);
             tb_username.Name = "tb_username";
-            tb_username.Size = new Size(210, 31);
+            tb_username.Size = new Size(267, 31);
             tb_username.TabIndex = 4;
             // 
             // lb_password
             // 
             lb_password.AutoSize = true;
-            lb_password.Location = new Point(150, 195);
+            lb_password.Location = new Point(146, 189);
             lb_password.Name = "lb_password";
             lb_password.Size = new Size(87, 25);
             lb_password.TabIndex = 5;
             lb_password.Text = "Password";
+            lb_password.Click += lb_password_Click;
             // 
             // llb_forgotPassword
             // 
             llb_forgotPassword.AutoSize = true;
             llb_forgotPassword.LinkColor = Color.Black;
-            llb_forgotPassword.Location = new Point(146, 272);
+            llb_forgotPassword.Location = new Point(257, 189);
             llb_forgotPassword.Name = "llb_forgotPassword";
             llb_forgotPassword.Size = new Size(156, 25);
             llb_forgotPassword.TabIndex = 6;
@@ -107,17 +110,27 @@
             // 
             lb_gamename.AutoSize = true;
             lb_gamename.Font = new Font("Segoe UI", 14F);
-            lb_gamename.Location = new Point(216, 76);
+            lb_gamename.Location = new Point(189, 75);
             lb_gamename.Name = "lb_gamename";
             lb_gamename.Size = new Size(171, 38);
             lb_gamename.TabIndex = 7;
             lb_gamename.Text = "Game Name";
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new Point(286, 9);
+            label1.Name = "label1";
+            label1.Size = new Size(227, 25);
+            label1.TabIndex = 8;
+            label1.Text = "Don´t have an account yet?";
             // 
             // form_login
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(606, 489);
+            Controls.Add(label1);
             Controls.Add(lb_gamename);
             Controls.Add(llb_forgotPassword);
             Controls.Add(lb_password);
@@ -143,5 +156,6 @@
         private Label lb_password;
         private LinkLabel llb_forgotPassword;
         private Label lb_gamename;
+        private Label label1;
     }
 }
