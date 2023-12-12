@@ -6,13 +6,24 @@ using System.Threading.Tasks;
 using System.Data.SqlClient;
 using System.Runtime.CompilerServices;
 using System.Collections;
+using System.Web;
 
 namespace APR_jahresprojekt_podoprygora
 {
     internal static class Sqlmethods
     {
         public static readonly string constring = "Server = (localdb)\\MSSQLLocalDB; Initial Catalog = jahresprojektDB; Integrated Security = true;";
-
+        
+        public static void create_table_login(string sqlconnection)
+        {
+            SqlConnection con = new SqlConnection(sqlconnection);
+            con.Open();
+            SqlCommand cmd = new SqlCommand("CREATE TABLE IF NOT EXISTS login (" +
+                "[Id] INT IDENTITY (1, 1) NOT NULL," +
+                "[username] VARCHAR (16) NULL," +
+                "[password] VARCHAR (16) NULL," +
+                "PRIMARY KEY CLUSTERED ([Id] ASC));", con);
+        }
         public static void sqlconnection(string sqlconnection)
         {
             try
