@@ -28,55 +28,100 @@
         /// </summary>
         private void InitializeComponent()
         {
-            textBox1 = new TextBox();
-            button1 = new Button();
-            label1 = new Label();
-            label2 = new Label();
+            tb_username = new TextBox();
+            btn_next = new Button();
+            lb_username = new Label();
+            lb_password = new Label();
+            tb_password = new TextBox();
+            btn_signup = new Button();
+            llb_AHAC = new LinkLabel();
             SuspendLayout();
             // 
-            // textBox1
+            // tb_username
             // 
-            textBox1.Location = new Point(234, 148);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(232, 31);
-            textBox1.TabIndex = 0;
+            tb_username.Location = new Point(138, 89);
+            tb_username.Margin = new Padding(2);
+            tb_username.Name = "tb_username";
+            tb_username.Size = new Size(164, 23);
+            tb_username.TabIndex = 0;
             // 
-            // button1
+            // btn_next
             // 
-            button1.Location = new Point(354, 220);
-            button1.Name = "button1";
-            button1.Size = new Size(112, 34);
-            button1.TabIndex = 1;
-            button1.Text = "button1";
-            button1.UseVisualStyleBackColor = true;
+            btn_next.Location = new Point(224, 116);
+            btn_next.Margin = new Padding(2);
+            btn_next.Name = "btn_next";
+            btn_next.Size = new Size(78, 25);
+            btn_next.TabIndex = 1;
+            btn_next.Text = "Next";
+            btn_next.UseVisualStyleBackColor = true;
+            btn_next.Click += btn_next_Click;
             // 
-            // label1
+            // lb_username
             // 
-            label1.AutoSize = true;
-            label1.Location = new Point(234, 120);
-            label1.Name = "label1";
-            label1.Size = new Size(59, 25);
-            label1.TabIndex = 2;
-            label1.Text = "label1";
+            lb_username.AutoSize = true;
+            lb_username.Location = new Point(138, 72);
+            lb_username.Margin = new Padding(2, 0, 2, 0);
+            lb_username.Name = "lb_username";
+            lb_username.Size = new Size(60, 15);
+            lb_username.TabIndex = 2;
+            lb_username.Text = "Username";
             // 
-            // label2
+            // lb_password
             // 
-            label2.AutoSize = true;
-            label2.Location = new Point(234, 182);
-            label2.Name = "label2";
-            label2.Size = new Size(59, 25);
-            label2.TabIndex = 3;
-            label2.Text = "label2";
+            lb_password.AutoSize = true;
+            lb_password.Location = new Point(141, 114);
+            lb_password.Margin = new Padding(2, 0, 2, 0);
+            lb_password.Name = "lb_password";
+            lb_password.Size = new Size(57, 15);
+            lb_password.TabIndex = 3;
+            lb_password.Text = "Password";
+            lb_password.Visible = false;
+            // 
+            // tb_password
+            // 
+            tb_password.Location = new Point(138, 132);
+            tb_password.Name = "tb_password";
+            tb_password.Size = new Size(164, 23);
+            tb_password.TabIndex = 4;
+            tb_password.Visible = false;
+            // 
+            // btn_signup
+            // 
+            btn_signup.Location = new Point(224, 160);
+            btn_signup.Margin = new Padding(2);
+            btn_signup.Name = "btn_signup";
+            btn_signup.Size = new Size(78, 25);
+            btn_signup.TabIndex = 5;
+            btn_signup.Text = "Sign Up";
+            btn_signup.UseVisualStyleBackColor = true;
+            btn_signup.Visible = false;
+            btn_signup.Click += btn_signup_Click;
+            // 
+            // llb_AHAC
+            // 
+            llb_AHAC.AutoSize = true;
+            llb_AHAC.LinkColor = Color.FromArgb(64, 64, 64);
+            llb_AHAC.Location = new Point(12, 9);
+            llb_AHAC.Name = "llb_AHAC";
+            llb_AHAC.Size = new Size(142, 15);
+            llb_AHAC.TabIndex = 6;
+            llb_AHAC.TabStop = true;
+            llb_AHAC.Text = "Already have an account?";
+            llb_AHAC.LinkClicked += llb_AHAC_LinkClicked;
             // 
             // form_signup
             // 
-            AutoScaleDimensions = new SizeF(10F, 25F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
-            Controls.Add(label2);
-            Controls.Add(label1);
-            Controls.Add(button1);
-            Controls.Add(textBox1);
+            ClientSize = new Size(560, 270);
+            Controls.Add(llb_AHAC);
+            Controls.Add(btn_signup);
+            Controls.Add(tb_password);
+            Controls.Add(lb_password);
+            Controls.Add(lb_username);
+            Controls.Add(btn_next);
+            Controls.Add(tb_username);
+            Margin = new Padding(2);
             Name = "form_signup";
             Text = "form_signup";
             ResumeLayout(false);
@@ -85,9 +130,12 @@
 
         #endregion
 
-        private TextBox textBox1;
-        private Button button1;
-        private Label label1;
-        private Label label2;
+        private TextBox tb_username;
+        private Button btn_next;
+        private Label lb_username;
+        private Label lb_password;
+        private TextBox tb_password;
+        private Button btn_signup;
+        private LinkLabel llb_AHAC;
     }
 }

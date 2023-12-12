@@ -85,9 +85,18 @@ namespace APR_jahresprojekt_podoprygora
 
         public static void signup(string username, string password, string sqlconnection)
         {
-            SqlConnection con = new SqlConnection(sqlconnection);
-            con.Open();
-            SqlCommand cmd = new SqlCommand("INSERT INTO login (username, password) VALUES (username ='"+username+"', password = '"+password+"';", con);
-        }
+            try
+            {
+                SqlConnection con = new SqlConnection(sqlconnection);
+                con.Open();
+                SqlCommand cmd = new SqlCommand("INSERT INTO login (username, password) VALUES('" + username + "', '" + password + "');", con);
+                cmd.ExecuteNonQuery();
+                con.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }    
     }
 }

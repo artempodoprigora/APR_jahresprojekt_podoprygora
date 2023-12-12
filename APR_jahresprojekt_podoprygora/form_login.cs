@@ -46,5 +46,12 @@ namespace APR_jahresprojekt_podoprygora
         {
 
         }
+
+        private void llb_signup_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            this.Hide();
+            form_signup form_Signup = new form_signup();
+            form_Signup.ShowDialog();
+        }
     }
 }

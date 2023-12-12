@@ -41,17 +41,19 @@
             // 
             // tb_password
             // 
-            tb_password.Location = new Point(146, 217);
+            tb_password.Location = new Point(102, 130);
+            tb_password.Margin = new Padding(2, 2, 2, 2);
             tb_password.Name = "tb_password";
-            tb_password.Size = new Size(267, 31);
+            tb_password.Size = new Size(188, 23);
             tb_password.TabIndex = 0;
             tb_password.UseSystemPasswordChar = true;
             // 
             // btn_login
             // 
-            btn_login.Location = new Point(301, 254);
+            btn_login.Location = new Point(212, 157);
+            btn_login.Margin = new Padding(2, 2, 2, 2);
             btn_login.Name = "btn_login";
-            btn_login.Size = new Size(112, 34);
+            btn_login.Size = new Size(78, 20);
             btn_login.TabIndex = 1;
             btn_login.Text = "Login";
             btn_login.UseVisualStyleBackColor = true;
@@ -60,9 +62,10 @@
             // lb_username
             // 
             lb_username.AutoSize = true;
-            lb_username.Location = new Point(150, 122);
+            lb_username.Location = new Point(105, 73);
+            lb_username.Margin = new Padding(2, 0, 2, 0);
             lb_username.Name = "lb_username";
-            lb_username.Size = new Size(91, 25);
+            lb_username.Size = new Size(60, 15);
             lb_username.TabIndex = 2;
             lb_username.Text = "Username";
             // 
@@ -70,26 +73,30 @@
             // 
             llb_signup.AutoSize = true;
             llb_signup.LinkColor = Color.Black;
-            llb_signup.Location = new Point(519, 9);
+            llb_signup.Location = new Point(363, 5);
+            llb_signup.Margin = new Padding(2, 0, 2, 0);
             llb_signup.Name = "llb_signup";
-            llb_signup.Size = new Size(75, 25);
+            llb_signup.Size = new Size(48, 15);
             llb_signup.TabIndex = 3;
             llb_signup.TabStop = true;
             llb_signup.Text = "Sign Up";
+            llb_signup.LinkClicked += llb_signup_LinkClicked;
             // 
             // tb_username
             // 
-            tb_username.Location = new Point(146, 150);
+            tb_username.Location = new Point(102, 90);
+            tb_username.Margin = new Padding(2, 2, 2, 2);
             tb_username.Name = "tb_username";
-            tb_username.Size = new Size(267, 31);
+            tb_username.Size = new Size(188, 23);
             tb_username.TabIndex = 4;
             // 
             // lb_password
             // 
             lb_password.AutoSize = true;
-            lb_password.Location = new Point(146, 189);
+            lb_password.Location = new Point(102, 113);
+            lb_password.Margin = new Padding(2, 0, 2, 0);
             lb_password.Name = "lb_password";
-            lb_password.Size = new Size(87, 25);
+            lb_password.Size = new Size(57, 15);
             lb_password.TabIndex = 5;
             lb_password.Text = "Password";
             lb_password.Click += lb_password_Click;
@@ -98,9 +105,10 @@
             // 
             llb_forgotPassword.AutoSize = true;
             llb_forgotPassword.LinkColor = Color.Black;
-            llb_forgotPassword.Location = new Point(257, 189);
+            llb_forgotPassword.Location = new Point(180, 113);
+            llb_forgotPassword.Margin = new Padding(2, 0, 2, 0);
             llb_forgotPassword.Name = "llb_forgotPassword";
-            llb_forgotPassword.Size = new Size(156, 25);
+            llb_forgotPassword.Size = new Size(100, 15);
             llb_forgotPassword.TabIndex = 6;
             llb_forgotPassword.TabStop = true;
             llb_forgotPassword.Text = "Forgot password?";
@@ -110,26 +118,28 @@
             // 
             lb_gamename.AutoSize = true;
             lb_gamename.Font = new Font("Segoe UI", 14F);
-            lb_gamename.Location = new Point(189, 75);
+            lb_gamename.Location = new Point(132, 45);
+            lb_gamename.Margin = new Padding(2, 0, 2, 0);
             lb_gamename.Name = "lb_gamename";
-            lb_gamename.Size = new Size(171, 38);
+            lb_gamename.Size = new Size(116, 25);
             lb_gamename.TabIndex = 7;
             lb_gamename.Text = "Game Name";
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(286, 9);
+            label1.Location = new Point(209, 5);
+            label1.Margin = new Padding(2, 0, 2, 0);
             label1.Name = "label1";
-            label1.Size = new Size(227, 25);
+            label1.Size = new Size(150, 15);
             label1.TabIndex = 8;
             label1.Text = "Don´t have an account yet?";
             // 
             // form_login
             // 
-            AutoScaleDimensions = new SizeF(10F, 25F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(606, 489);
+            ClientSize = new Size(424, 293);
             Controls.Add(label1);
             Controls.Add(lb_gamename);
             Controls.Add(llb_forgotPassword);
@@ -139,6 +149,7 @@
             Controls.Add(lb_username);
             Controls.Add(btn_login);
             Controls.Add(tb_password);
+            Margin = new Padding(2, 2, 2, 2);
             Name = "form_login";
             Text = "Login";
             Load += form_login_Load;
