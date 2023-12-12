@@ -14,6 +14,9 @@ namespace APR_jahresprojekt_podoprygora
 
         private void form_login_Load(object sender, EventArgs e)
         {
+            create_database_jahresprojektDB(constring);
+            create_table_login(constring);
+            create_table_highscore(constring);
             tb_username.Select();
         }
 
@@ -21,11 +24,13 @@ namespace APR_jahresprojekt_podoprygora
         {
             if (validation(tb_username.Text, tb_password.Text, constring))
             {
-                MessageBox.Show("Success!");
+                this.Hide();
+                form_menu form_Menu = new form_menu();
+                form_Menu.ShowDialog();
             }
             else
             {
-                MessageBox.Show("Fail!((");
+                MessageBox.Show("Incorrect username or password!");
             }
         }
 
