@@ -1,7 +1,5 @@
-using static APR_jahresprojekt_podoprygora.Sqlmethods;
 using System.Data.SqlClient;
-using static System.Runtime.CompilerServices.RuntimeHelpers;
-using System.Reflection.Metadata;
+using static APR_jahresprojekt_podoprygora.Sqlmethods;
 
 namespace APR_jahresprojekt_podoprygora
 {

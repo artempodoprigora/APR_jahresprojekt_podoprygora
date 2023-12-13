@@ -1,14 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+﻿using System.Data.SqlClient;
 using static APR_jahresprojekt_podoprygora.Sqlmethods;
-using System.Data.SqlClient;
 
 namespace APR_jahresprojekt_podoprygora
 {
@@ -38,15 +29,15 @@ namespace APR_jahresprojekt_podoprygora
                 MessageBox.Show("Username doesn`t exist!");
             }
         }
-        
 
-    private void btn_change_Click(object sender, EventArgs e)
+
+        private void btn_change_Click(object sender, EventArgs e)
         {
             if (tb_newPassword.Text.Length >= 8)
             {
                 password_change(tb_username.Text, tb_newPassword.Text, constring);
             }
-            else if(tb_newPassword.Text.Length < 8)
+            else if (tb_newPassword.Text.Length < 8)
             {
                 MessageBox.Show("Minimal password length is 8 symbols.");
             }
@@ -59,6 +50,13 @@ namespace APR_jahresprojekt_podoprygora
             form_login form_Login = new form_login();
             form_Login.ShowDialog();
             this.Hide();
+        }
+
+        private void llb_back_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            this.Hide();
+            form_login form_Login = new form_login();
+            form_Login.ShowDialog();
         }
     }
 }

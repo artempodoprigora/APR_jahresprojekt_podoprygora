@@ -1,22 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Data.SqlClient;
-using System.Runtime.CompilerServices;
-using System.Collections;
-using System.Web;
-using static System.ComponentModel.Design.ObjectSelectorEditor;
-using System.Windows.Forms;
-using System.Xml.Linq;
+﻿using System.Data.SqlClient;
 
 namespace APR_jahresprojekt_podoprygora
 {
     internal static class Sqlmethods
     {
         public static string constring = "Server = (localdb)\\MSSQLLocalDB; Integrated Security = true;";
-        
+
         public static void create_database_jahresprojektDB(string sqlconnection)
         {
             SqlConnection con = new SqlConnection(sqlconnection);
@@ -58,8 +47,8 @@ namespace APR_jahresprojekt_podoprygora
                 con.Open();
                 con.Close();
             }
-            catch (Exception ex) 
-            { 
+            catch (Exception ex)
+            {
                 MessageBox.Show(ex.Message);
             }
         }
@@ -75,12 +64,12 @@ namespace APR_jahresprojekt_podoprygora
                 cmd.Parameters.AddWithValue("password", password);
                 int count = (int)cmd.ExecuteScalar();
                 con.Close();
-                    return count > 0;
-                
+                return count > 0;
+
             }
             catch (Exception ex)
             {
-                MessageBox.Show (ex.Message);
+                MessageBox.Show(ex.Message);
                 return false;
             }
         }
@@ -92,10 +81,10 @@ namespace APR_jahresprojekt_podoprygora
                 SqlConnection con = new SqlConnection(sqlconnection);
                 con.Open();
                 SqlCommand cmd = new SqlCommand("SELECT COUNT(*) FROM dbo.login WHERE username LIKE '" + username + "'", con);
-                    cmd.Parameters.AddWithValue("username", username);
-                    int count = (int)cmd.ExecuteScalar();
-                    con.Close();
-                    return count > 0;
+                cmd.Parameters.AddWithValue("username", username);
+                int count = (int)cmd.ExecuteScalar();
+                con.Close();
+                return count > 0;
             }
             catch (Exception ex)
             {
@@ -110,11 +99,11 @@ namespace APR_jahresprojekt_podoprygora
             {
                 SqlConnection con = new SqlConnection(sqlconnection);
                 con.Open();
-                SqlCommand cmd = new SqlCommand("UPDATE login SET password ='"+password+"' WHERE username = '"+username+"';", con);
+                SqlCommand cmd = new SqlCommand("UPDATE login SET password ='" + password + "' WHERE username = '" + username + "';", con);
                 cmd.ExecuteNonQuery();
                 con.Close();
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
@@ -134,6 +123,6 @@ namespace APR_jahresprojekt_podoprygora
             {
                 MessageBox.Show(ex.Message);
             }
-        }    
+        }
     }
 }
