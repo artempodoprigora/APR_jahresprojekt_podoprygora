@@ -8,36 +8,57 @@ namespace APR_jahresprojekt_podoprygora
 
         public static void create_database_jahresprojektDB(string sqlconnection)
         {
-            SqlConnection con = new SqlConnection(sqlconnection);
-            con.Open();
-            SqlCommand cmd = new SqlCommand("IF NOT EXISTS (SELECT * FROM sys.databases WHERE name = 'jahresprojektDB')" +
-                "CREATE DATABASE jahresprojektDB;", con);
-            cmd.ExecuteNonQuery();
-            constring = constring + "Initial Catalog = jahresprojektDB;";
-            con.Close();
+            try
+            {
+                SqlConnection con = new SqlConnection(sqlconnection);
+                con.Open();
+                SqlCommand cmd = new SqlCommand("IF NOT EXISTS (SELECT * FROM sys.databases WHERE name = 'jahresprojektDB')" +
+                    "CREATE DATABASE jahresprojektDB;", con);
+                cmd.ExecuteNonQuery();
+                constring = constring + "Initial Catalog = jahresprojektDB;";
+                con.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
         public static void create_table_login(string sqlconnection)
         {
-            SqlConnection con = new SqlConnection(sqlconnection);
-            con.Open();
-            SqlCommand cmd = new SqlCommand("IF NOT EXISTS(SELECT * FROM sysobjects WHERE name = 'login') CREATE TABLE login(" +
-                "[Id] INT IDENTITY (1, 1) NOT NULL," +
-            "[username] VARCHAR (16) NULL," +
-                "[password] VARCHAR (16) NULL," +
-                "PRIMARY KEY CLUSTERED ([Id] ASC));", con);
-            cmd.ExecuteNonQuery();
-            con.Close();
+            try
+            {
+                SqlConnection con = new SqlConnection(sqlconnection);
+                con.Open();
+                SqlCommand cmd = new SqlCommand("IF NOT EXISTS(SELECT * FROM sysobjects WHERE name = 'login') CREATE TABLE login(" +
+                    "[Id] INT IDENTITY (1, 1) NOT NULL," +
+                "[username] VARCHAR (16) NULL," +
+                    "[password] VARCHAR (16) NULL," +
+                    "PRIMARY KEY CLUSTERED ([Id] ASC));", con);
+                cmd.ExecuteNonQuery();
+                con.Close();
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show (ex.Message);
+            }
         }
         public static void create_table_highscore(string sqlconnection)
         {
-            SqlConnection con = new SqlConnection(sqlconnection);
-            con.Open();
-            SqlCommand cmd = new SqlCommand("IF NOT EXISTS (SELECT * FROM sysobjects WHERE name='highscore') CREATE TABLE highscore(" +
-                "[Id] INT IDENTITY (1,1) NOT NULL," +
-                "[username] VARCHAR (16) NULL," +
-                "PRIMARY KEY CLUSTERED ([Id] ASC));", con);
-            cmd.ExecuteNonQuery();
-            con.Close();
+            try
+            {
+                SqlConnection con = new SqlConnection(sqlconnection);
+                con.Open();
+                SqlCommand cmd = new SqlCommand("IF NOT EXISTS (SELECT * FROM sysobjects WHERE name='highscore') CREATE TABLE highscore(" +
+                    "[Id] INT IDENTITY (1,1) NOT NULL," +
+                    "[username] VARCHAR (16) NULL," +
+                    "PRIMARY KEY CLUSTERED ([Id] ASC));", con);
+                cmd.ExecuteNonQuery();
+                con.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
         public static void sqlconnection(string sqlconnection)
         {
