@@ -23,6 +23,7 @@ namespace APR_jahresprojekt_podoprygora
             if (validation(tb_username.Text, tb_password.Text, constring))
             {
                 session_username = tb_username.Text;
+                User_highscoreSetup(session_username, constring);
                 this.Hide();
                 form_menu form_Menu = new form_menu();
                 form_Menu.ShowDialog();
@@ -38,12 +39,6 @@ namespace APR_jahresprojekt_podoprygora
             this.Hide();
             form_forgotPassword form_ForgotPassword = new form_forgotPassword();
             form_ForgotPassword.ShowDialog();
-        }
-        private void form_login_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            SqlConnection con = new SqlConnection(constring);
-            con.Close();
-            Application.Exit();
         }
 
         private void lb_password_Click(object sender, EventArgs e)
