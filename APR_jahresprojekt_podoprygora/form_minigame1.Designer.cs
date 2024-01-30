@@ -28,12 +28,33 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Text = "form_minigame1";
+            lb_highscore = new Label();
+            SuspendLayout();
+            // 
+            // lb_highscore
+            // 
+            lb_highscore.AutoSize = true;
+            lb_highscore.Location = new Point(235, 224);
+            lb_highscore.Name = "lb_highscore";
+            lb_highscore.Size = new Size(89, 15);
+            lb_highscore.TabIndex = 0;
+            lb_highscore.Text = "your highscore:";
+            // 
+            // form_minigame1
+            // 
+            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleMode = AutoScaleMode.Font;
+            ClientSize = new Size(559, 459);
+            Controls.Add(lb_highscore);
+            Name = "form_minigame1";
+            Text = "form_minigame1";
+            Load += form_minigame1_Load;
+            ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
+
+        private Label lb_highscore;
     }
 }
