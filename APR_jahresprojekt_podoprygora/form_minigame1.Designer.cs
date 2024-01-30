@@ -28,10 +28,16 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Text = "form_minigame1";
+            SuspendLayout();
+            // 
+            // form_minigame1
+            // 
+            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleMode = AutoScaleMode.Font;
+            ClientSize = new Size(559, 459);
+            Name = "form_minigame1";
+            Text = "form_minigame1";
+            ResumeLayout(false);
         }
 
         #endregion
