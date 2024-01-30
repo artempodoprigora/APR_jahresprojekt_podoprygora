@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static APR_jahresprojekt_podoprygora.Sqlmethods;
 
 namespace APR_jahresprojekt_podoprygora
 {
@@ -15,6 +16,11 @@ namespace APR_jahresprojekt_podoprygora
         public form_minigame1()
         {
             InitializeComponent();
+        }
+
+        private void form_minigame1_Load(object sender, EventArgs e)
+        {
+            highscore(session_username, lb_highscore, constring);
         }
     }
 }

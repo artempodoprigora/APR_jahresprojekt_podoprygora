@@ -5,7 +5,7 @@ namespace APR_jahresprojekt_podoprygora
     internal static class Sqlmethods
     {
         public static string constring = "Server = (localdb)\\MSSQLLocalDB; Integrated Security = true;";
-
+        public static string? session_username;
         public static void create_database_jahresprojektDB(string sqlconnection)
         {
             try
@@ -48,10 +48,11 @@ namespace APR_jahresprojekt_podoprygora
             {
                 SqlConnection con = new SqlConnection(sqlconnection);
                 con.Open();
-                SqlCommand cmd = new SqlCommand("IF NOT EXISTS (SELECT * FROM sysobjects WHERE name='highscore') CREATE TABLE highscore(" +
-                    "[Id] INT IDENTITY (1,1) NOT NULL," +
+                SqlCommand cmd = new SqlCommand("IF NOT EXISTS (SELECT * FROM sysobjects WHERE name='highscore') CREATE TABLE highscore("+
+                    "[Id] INT IDENTITY (1, 1) NOT NULL," +
+                    "[score] INT NULL ," +
                     "[username] VARCHAR (16) NULL," +
-                    "PRIMARY KEY CLUSTERED ([Id] ASC));", con);
+                    "PRIMARY KEY ([Id] ASC));", con);
                 cmd.ExecuteNonQuery();
                 con.Close();
             }
@@ -138,6 +139,29 @@ namespace APR_jahresprojekt_podoprygora
                 con.Open();
                 SqlCommand cmd = new SqlCommand("INSERT INTO login (username, password) VALUES('" + username + "', '" + password + "');", con);
                 cmd.ExecuteNonQuery();
+                con.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        public static void highscore(string username, Label label, string sqlconnection)
+        {
+            
+            try
+            {
+                SqlConnection con = new SqlConnection(sqlconnection);
+                con.Open();
+                SqlCommand cmd = new SqlCommand("SELECT score FROM highscore where username = '"+username+"';", con);
+                SqlDataReader reader = cmd.ExecuteReader();
+                string? highscore = "";
+                while (reader.Read())
+                {
+                    highscore = reader[0].ToString();
+                }
+                label.Text = label.Text + highscore;
                 con.Close();
             }
             catch (Exception ex)

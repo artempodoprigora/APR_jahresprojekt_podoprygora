@@ -22,6 +22,7 @@ namespace APR_jahresprojekt_podoprygora
         {
             if (validation(tb_username.Text, tb_password.Text, constring))
             {
+                session_username = tb_username.Text;
                 this.Hide();
                 form_menu form_Menu = new form_menu();
                 form_Menu.ShowDialog();
