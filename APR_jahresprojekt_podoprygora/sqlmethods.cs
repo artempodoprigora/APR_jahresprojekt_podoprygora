@@ -1,5 +1,6 @@
 ﻿using StudioManager;
 using System.Data.SqlClient;
+using System.Runtime.CompilerServices;
 
 namespace APR_jahresprojekt_podoprygora
 {
@@ -128,6 +129,12 @@ namespace APR_jahresprojekt_podoprygora
                 SqlCommand cmd = new SqlCommand("UPDATE login SET password ='" + hashedPassword + "' WHERE username = '" + username + "';", con);
                 cmd.ExecuteNonQuery();
                 con.Close();
+                DialogResult dr = MessageBox.Show("Password was successfully changed!", "Password change", MessageBoxButtons.OK);
+                if (dr == DialogResult.OK)
+                {
+                    form_login form_Login = new form_login();
+                    form_Login.ShowDialog();
+                }
             }
             catch (Exception ex)
             {
@@ -145,6 +152,12 @@ namespace APR_jahresprojekt_podoprygora
                 SqlCommand cmd = new SqlCommand("INSERT INTO login (username, password) VALUES('" + username + "', '" + hashedPassword + "');", con);
                 cmd.ExecuteNonQuery();
                 con.Close();
+                DialogResult dr = MessageBox.Show("User successfully created!", "Sign Up", MessageBoxButtons.OK);
+                if (dr == DialogResult.OK)
+                {
+                    form_login form_Login = new form_login();
+                    form_Login.ShowDialog();
+                }
             }
             catch (Exception ex)
             {

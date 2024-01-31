@@ -113,7 +113,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(560, 270);
+            ClientSize = new Size(423, 270);
             Controls.Add(llb_AHAC);
             Controls.Add(btn_signup);
             Controls.Add(tb_password);
