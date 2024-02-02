@@ -123,7 +123,9 @@
             Controls.Add(tb_username);
             Margin = new Padding(2);
             Name = "form_signup";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "form_signup";
+            Load += form_signup_Load;
             ResumeLayout(false);
             PerformLayout();
         }

@@ -110,7 +110,16 @@ namespace APR_jahresprojekt_podoprygora
                 cmd.Parameters.AddWithValue("username", username);
                 int count = (int)cmd.ExecuteScalar();
                 con.Close();
-                return count > 0;
+                if (count > 0)
+                {
+                    return true;
+                }
+                else
+                {
+                    MessageBox.Show("Account with this username doesn't exist.", "Error!", MessageBoxButtons.OK);
+                    return false;
+                }
+                
             }
             catch (Exception ex)
             {
@@ -155,6 +164,8 @@ namespace APR_jahresprojekt_podoprygora
                 DialogResult dr = MessageBox.Show("User successfully created!", "Sign Up", MessageBoxButtons.OK);
                 if (dr == DialogResult.OK)
                 {
+                    form_signup form_Signup = new form_signup();
+                    form_Signup.Close();
                     form_login form_Login = new form_login();
                     form_Login.ShowDialog();
                 }

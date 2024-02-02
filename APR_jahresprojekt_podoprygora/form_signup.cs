@@ -27,6 +27,7 @@ namespace APR_jahresprojekt_podoprygora
         private void btn_signup_Click(object sender, EventArgs e)
         {
             signup(tb_username.Text, tb_password.Text, constring);
+            this.Close();
         }
 
         private void llb_AHAC_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
@@ -34,6 +35,11 @@ namespace APR_jahresprojekt_podoprygora
             this.Hide();
             form_login form_Login = new form_login();
             form_Login.ShowDialog();
+        }
+
+        private void form_signup_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
