@@ -1,11 +1,13 @@
-﻿using System.Data.SqlClient;
+﻿using StudioManager;
+using System.Data.SqlClient;
+using System.Runtime.CompilerServices;
 
 namespace APR_jahresprojekt_podoprygora
 {
     internal static class Sqlmethods
     {
         public static string constring = "Server = (localdb)\\MSSQLLocalDB; Integrated Security = true;";
-        public static string? session_username;
+        public static string session_username = "";
         public static void create_database_jahresprojektDB(string sqlconnection)
         {
             try
@@ -32,7 +34,7 @@ namespace APR_jahresprojekt_podoprygora
                 SqlCommand cmd = new SqlCommand("IF NOT EXISTS(SELECT * FROM sysobjects WHERE name = 'login') CREATE TABLE login(" +
                     "[Id] INT IDENTITY (1, 1) NOT NULL," +
                 "[username] VARCHAR (16) NULL," +
-                    "[password] VARCHAR (16) NULL," +
+                    "[password] VARCHAR (120) NULL," +
                     "PRIMARY KEY CLUSTERED ([Id] ASC));", con);
                 cmd.ExecuteNonQuery();
                 con.Close();
@@ -77,17 +79,19 @@ namespace APR_jahresprojekt_podoprygora
 
         public static bool validation(string username, string password, string sqlconnection)
         {
+            string hashedPassword = "";
             try
             {
                 SqlConnection con = new SqlConnection(sqlconnection);
                 con.Open();
-                SqlCommand cmd = new SqlCommand("SELECT COUNT(*) FROM dbo.login WHERE username LIKE '" + username + "' AND password LIKE '" + password + "'", con);
-                cmd.Parameters.AddWithValue("username", username);
-                cmd.Parameters.AddWithValue("password", password);
-                int count = (int)cmd.ExecuteScalar();
-                con.Close();
-                return count > 0;
-
+                SqlCommand cmd = new SqlCommand("SELECT password FROM dbo.login WHERE username LIKE '" + username + "';", con);
+                SqlDataReader reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    hashedPassword = reader.GetString(0);
+                }
+                bool result = BCrypt.CheckPassword(password, hashedPassword);
+                return result;
             }
             catch (Exception ex)
             {
@@ -106,7 +110,16 @@ namespace APR_jahresprojekt_podoprygora
                 cmd.Parameters.AddWithValue("username", username);
                 int count = (int)cmd.ExecuteScalar();
                 con.Close();
-                return count > 0;
+                if (count > 0)
+                {
+                    return true;
+                }
+                else
+                {
+                    MessageBox.Show("Account with this username doesn't exist.", "Error!", MessageBoxButtons.OK);
+                    return false;
+                }
+                
             }
             catch (Exception ex)
             {
@@ -117,13 +130,20 @@ namespace APR_jahresprojekt_podoprygora
 
         public static void password_change(string username, string password, string sqlconnection)
         {
+            string hashedPassword = BCrypt.HashPassword(password, BCrypt.GenerateSalt());
             try
             {
                 SqlConnection con = new SqlConnection(sqlconnection);
                 con.Open();
-                SqlCommand cmd = new SqlCommand("UPDATE login SET password ='" + password + "' WHERE username = '" + username + "';", con);
+                SqlCommand cmd = new SqlCommand("UPDATE login SET password ='" + hashedPassword + "' WHERE username = '" + username + "';", con);
                 cmd.ExecuteNonQuery();
                 con.Close();
+                DialogResult dr = MessageBox.Show("Password was successfully changed!", "Password change", MessageBoxButtons.OK);
+                if (dr == DialogResult.OK)
+                {
+                    form_login form_Login = new form_login();
+                    form_Login.ShowDialog();
+                }
             }
             catch (Exception ex)
             {
@@ -133,13 +153,22 @@ namespace APR_jahresprojekt_podoprygora
 
         public static void signup(string username, string password, string sqlconnection)
         {
+            string hashedPassword = BCrypt.HashPassword(password, BCrypt.GenerateSalt());
             try
             {
                 SqlConnection con = new SqlConnection(sqlconnection);
                 con.Open();
-                SqlCommand cmd = new SqlCommand("INSERT INTO login (username, password) VALUES('" + username + "', '" + password + "');", con);
+                SqlCommand cmd = new SqlCommand("INSERT INTO login (username, password) VALUES('" + username + "', '" + hashedPassword + "');", con);
                 cmd.ExecuteNonQuery();
                 con.Close();
+                DialogResult dr = MessageBox.Show("User successfully created!", "Sign Up", MessageBoxButtons.OK);
+                if (dr == DialogResult.OK)
+                {
+                    form_signup form_Signup = new form_signup();
+                    form_Signup.Close();
+                    form_login form_Login = new form_login();
+                    form_Login.ShowDialog();
+                }
             }
             catch (Exception ex)
             {
@@ -167,6 +196,29 @@ namespace APR_jahresprojekt_podoprygora
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
+            }
+        }
+        public static void User_highscoreSetup(string username, string sqlconnection)
+        {
+            try
+            {
+                SqlConnection con = new SqlConnection(sqlconnection);
+                con.Open();
+                SqlCommand cmd = new SqlCommand("SELECT COUNT(*) FROM dbo.highscore WHERE username LIKE '" + username + "'", con);
+                cmd.Parameters.AddWithValue("username", username);
+                int count = (int)cmd.ExecuteScalar();
+                con.Close();
+                if (count == 0)
+                {
+                    con.Open();
+                    cmd.CommandText = "INSERT INTO highscore (username, score) values ('"+username+"', 0)";
+                }
+                else { return; }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                return;
             }
         }
     }

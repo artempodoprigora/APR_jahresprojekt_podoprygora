@@ -34,7 +34,7 @@
             // lb_highscore
             // 
             lb_highscore.AutoSize = true;
-            lb_highscore.Location = new Point(226, 224);
+            lb_highscore.Location = new Point(235, 224);
             lb_highscore.Name = "lb_highscore";
             lb_highscore.Size = new Size(89, 15);
             lb_highscore.TabIndex = 0;
