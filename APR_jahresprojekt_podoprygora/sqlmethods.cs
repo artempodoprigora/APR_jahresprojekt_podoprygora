@@ -139,11 +139,11 @@ namespace APR_jahresprojekt_podoprygora
                 cmd.ExecuteNonQuery();
                 con.Close();
                 DialogResult dr = MessageBox.Show("Password was successfully changed!", "Password change", MessageBoxButtons.OK);
-                if (dr == DialogResult.OK)
-                {
-                    form_login form_Login = new form_login();
-                    form_Login.ShowDialog();
-                }
+                //if (dr == DialogResult.OK)
+                //{
+                //    form_login form_Login = new form_login();
+                //    form_Login.ShowDialog();
+                //}
             }
             catch (Exception ex)
             {
