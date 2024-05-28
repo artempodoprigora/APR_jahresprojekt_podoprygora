@@ -84,6 +84,7 @@
             tb_password.Size = new Size(164, 23);
             tb_password.TabIndex = 4;
             tb_password.Visible = false;
+            tb_password.TextChanged += tb_password_TextChanged;
             // 
             // btn_signup
             // 

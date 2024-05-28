@@ -20,6 +20,7 @@ namespace APR_jahresprojekt_podoprygora
             }
             else
             {
+                MessageBox.Show("User with this name already exists!", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error );
                 return;
             }
         }
@@ -47,6 +48,11 @@ namespace APR_jahresprojekt_podoprygora
         }
 
         private void form_signup_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tb_password_TextChanged(object sender, EventArgs e)
         {
 
         }
