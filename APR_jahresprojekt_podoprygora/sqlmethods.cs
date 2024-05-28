@@ -116,7 +116,6 @@ namespace APR_jahresprojekt_podoprygora
                 }
                 else
                 {
-                    MessageBox.Show("Account with this username doesn't exist.", "Error!", MessageBoxButtons.OK);
                     return false;
                 }
                 
@@ -151,7 +150,7 @@ namespace APR_jahresprojekt_podoprygora
             }
         }
 
-        public static void signup(string username, string password, string sqlconnection)
+        public static bool signup(string username, string password, string sqlconnection)
         {
             string hashedPassword = BCrypt.HashPassword(password, BCrypt.GenerateSalt());
             try
@@ -164,15 +163,17 @@ namespace APR_jahresprojekt_podoprygora
                 DialogResult dr = MessageBox.Show("User successfully created!", "Sign Up", MessageBoxButtons.OK);
                 if (dr == DialogResult.OK)
                 {
-                    form_signup form_Signup = new form_signup();
-                    form_Signup.Close();
-                    form_login form_Login = new form_login();
-                    form_Login.ShowDialog();
+                    return true;
+                }
+                else
+                {
+                    return false;
                 }
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
+                return false;
             }
         }
 
