@@ -3,14 +3,14 @@
     partial class form_minigame1
     {
         /// <summary>
-        /// Required designer variable.
+        /// Обязательная переменная конструктора.
         /// </summary>
         private System.ComponentModel.IContainer components = null;
 
         /// <summary>
-        /// Clean up any resources being used.
+        /// Освободить все используемые ресурсы.
         /// </summary>
-        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        /// <param name="disposing">истинно, если управляемый ресурс должен быть удален; иначе ложно.</param>
         protected override void Dispose(bool disposing)
         {
             if (disposing && (components != null))
@@ -20,41 +20,41 @@
             base.Dispose(disposing);
         }
 
-        #region Windows Form Designer generated code
+        #region Код, автоматически созданный конструктором форм Windows
 
         /// <summary>
-        /// Required method for Designer support - do not modify
-        /// the contents of this method with the code editor.
+        /// Требуемый метод для поддержки конструктора — не изменяйте 
+        /// содержимое этого метода с помощью редактора кода.
         /// </summary>
         private void InitializeComponent()
         {
-            lb_highscore = new Label();
-            SuspendLayout();
+            this.label1 = new System.Windows.Forms.Label();
+            this.SuspendLayout();
             // 
-            // lb_highscore
+            // label1
             // 
-            lb_highscore.AutoSize = true;
-            lb_highscore.Location = new Point(235, 224);
-            lb_highscore.Name = "lb_highscore";
-            lb_highscore.Size = new Size(89, 15);
-            lb_highscore.TabIndex = 0;
-            lb_highscore.Text = "your highscore:";
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 18.25F);
+            this.label1.Location = new System.Drawing.Point(13, 25);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(100, 29);
+            this.label1.TabIndex = 16;
+            this.label1.Text = "Score:0";
             // 
-            // form_minigame1
+            // Form1
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
-            AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(559, 459);
-            Controls.Add(lb_highscore);
-            Name = "form_minigame1";
-            Text = "form_minigame1";
-            Load += form_minigame1_Load;
-            ResumeLayout(false);
-            PerformLayout();
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(243, 313);
+            this.Controls.Add(this.label1);
+            this.Name = "Form1";
+            this.Text = "2048";
+            this.ResumeLayout(false);
+            this.PerformLayout();
+
         }
 
         #endregion
-
-        private Label lb_highscore;
+        private System.Windows.Forms.Label label1;
     }
 }
