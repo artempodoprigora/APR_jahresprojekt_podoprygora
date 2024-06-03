@@ -166,9 +166,9 @@ namespace APR_jahresprojekt_podoprygora
                                         number[x, y] = number[x, y - 1];
                                         number[x, y - 1] = null;
                                         pictures[x, y].Location = new Point(pictures[x, y].Location.X + 56, pictures[x, y].Location.Y);
-                                        if (IsGameLost())
+                                        if (isGameLost())
                                         {
-                                            HandleGameOver();
+                                            handleGameOver();
                                         }
                                     }
                                     else
@@ -188,9 +188,9 @@ namespace APR_jahresprojekt_podoprygora
                                             pictures[x, y - 1] = null;
                                             number[x, y - 1] = null;
                                         }
-                                        if (IsGameLost())
+                                        if (isGameLost())
                                         {
-                                            HandleGameOver();
+                                            handleGameOver();
                                         }
                                     }
                                 }
@@ -217,9 +217,9 @@ namespace APR_jahresprojekt_podoprygora
                                         number[x, y] = number[x, y + 1];
                                         number[x, y + 1] = null;
                                         pictures[x, y].Location = new Point(pictures[x, y].Location.X - 56, pictures[x, y].Location.Y);
-                                        if (IsGameLost())
+                                        if (isGameLost())
                                         {
-                                            HandleGameOver();
+                                            handleGameOver();
                                         }
                                     }
                                     else
@@ -239,9 +239,9 @@ namespace APR_jahresprojekt_podoprygora
                                             pictures[x, y + 1] = null;
                                             number[x, y + 1] = null;
                                         }
-                                        if (IsGameLost())
+                                        if (isGameLost())
                                         {
-                                            HandleGameOver();
+                                            handleGameOver();
                                         }
                                     }
                                 }
@@ -268,9 +268,9 @@ namespace APR_jahresprojekt_podoprygora
                                         number[y, i] = number[y - 1, i];
                                         number[y - 1, i] = null;
                                         pictures[y, i].Location = new Point(pictures[y, i].Location.X, pictures[y, i].Location.Y + 56);
-                                        if (IsGameLost())
+                                        if (isGameLost())
                                         {
-                                            HandleGameOver();
+                                            handleGameOver();
                                         }
                                     }
                                     else
@@ -290,9 +290,9 @@ namespace APR_jahresprojekt_podoprygora
                                             pictures[y - 1, i] = null;
                                             number[y - 1, i] = null;
                                         }
-                                        if(IsGameLost())
+                                        if(isGameLost())
                                         {
-                                            HandleGameOver();
+                                            handleGameOver();
                                         }
                                     }
                                 }
@@ -319,9 +319,9 @@ namespace APR_jahresprojekt_podoprygora
                                         number[y, i] = number[y + 1, i];
                                         number[y + 1, i] = null;
                                         pictures[y, i].Location = new Point(pictures[y, i].Location.X, pictures[y, i].Location.Y - 56);
-                                        if (IsGameLost())
+                                        if (isGameLost())
                                         {
-                                           HandleGameOver();
+                                           handleGameOver();
                                         }
                                     }
                                     else
@@ -341,9 +341,9 @@ namespace APR_jahresprojekt_podoprygora
                                             pictures[y + 1, i] = null;
                                             number[y + 1, i] = null;
                                         }
-                                        if (IsGameLost())
+                                        if (isGameLost())
                                         {
-                                            HandleGameOver();
+                                            handleGameOver();
                                         }
                                     }
                                 }
@@ -368,7 +368,7 @@ namespace APR_jahresprojekt_podoprygora
             }
             else return;
         }
-        private bool IsGameLost()
+        private bool isGameLost()
         {
             for (int i = 0; i < 4; i++)
             {
@@ -405,7 +405,7 @@ namespace APR_jahresprojekt_podoprygora
 
             return true;
         }
-        private void HandleGameOver()
+        private void handleGameOver()
         {
             int score = Convert.ToInt32(lb_score.Text);
             if (score > Convert.ToInt32(getHighscore(session_username, constring)))
