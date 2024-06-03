@@ -199,6 +199,29 @@ namespace APR_jahresprojekt_podoprygora
                 MessageBox.Show(ex.Message);
             }
         }
+
+        public static string getHighscore(string username, string sqlconnection)
+        {
+            try
+            {
+                SqlConnection con = new SqlConnection(sqlconnection);
+                con.Open();
+                SqlCommand cmd = new SqlCommand("SELECT score FROM highscore where username = '" + username + "';", con);
+                SqlDataReader reader = cmd.ExecuteReader();
+                string? highscore = "";
+                while (reader.Read())
+                {
+                    highscore = reader[0].ToString();
+                }
+                con.Close();
+                return highscore;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                return "";
+            }
+        }
         public static void User_highscoreSetup(string username, string sqlconnection)
         {
             try

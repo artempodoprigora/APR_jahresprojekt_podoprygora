@@ -28,33 +28,49 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label1 = new System.Windows.Forms.Label();
-            this.SuspendLayout();
+            lb_score = new Label();
+            btn_surrender = new NotFocusableButton();
+            SuspendLayout();
             // 
-            // label1
+            // lb_score
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 18.25F);
-            this.label1.Location = new System.Drawing.Point(13, 25);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(100, 29);
-            this.label1.TabIndex = 16;
-            this.label1.Text = "Score:0";
+            lb_score.AutoSize = true;
+            lb_score.Font = new Font("Microsoft Sans Serif", 18.25F, FontStyle.Regular, GraphicsUnit.Point);
+            lb_score.Location = new Point(15, 29);
+            lb_score.Margin = new Padding(4, 0, 4, 0);
+            lb_score.Name = "lb_score";
+            lb_score.Size = new Size(100, 29);
+            lb_score.TabIndex = 16;
+            lb_score.Text = "Score:0";
             // 
-            // Form1
+            // btn_surrender
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(243, 313);
-            this.Controls.Add(this.label1);
-            this.Name = "Form1";
-            this.Text = "2048";
-            this.ResumeLayout(false);
-            this.PerformLayout();
-
+            btn_surrender.CausesValidation = false;
+            btn_surrender.Location = new Point(176, 29);
+            btn_surrender.Name = "btn_surrender";
+            btn_surrender.Size = new Size(82, 29);
+            btn_surrender.TabIndex = 394593485;
+            btn_surrender.TabStop = false;
+            btn_surrender.Text = "Surrender";
+            btn_surrender.UseVisualStyleBackColor = true;
+            btn_surrender.Click += btn_surrender_Click;
+            // 
+            // form_minigame1
+            // 
+            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleMode = AutoScaleMode.Font;
+            ClientSize = new Size(270, 361);
+            Controls.Add(btn_surrender);
+            Controls.Add(lb_score);
+            Margin = new Padding(4, 3, 4, 3);
+            Name = "form_minigame1";
+            Text = "2048";
+            ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
-        private System.Windows.Forms.Label label1;
+        private Label lb_score;
+        private Button btn_surrender;
     }
 }
