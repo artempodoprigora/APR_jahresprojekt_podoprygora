@@ -30,7 +30,6 @@ namespace APR_jahresprojekt_podoprygora
             InitializeField();
             InitializePictures();
             CreateNewPicture();
-            btn_surrender.TabStop = false;
         }
 
         public void form_minigame1_Load(object sender, EventArgs e)
