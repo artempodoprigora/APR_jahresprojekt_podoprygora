@@ -71,6 +71,6 @@
 
         #endregion
         private Label lb_score;
-        private Button btn_surrender;
+        private NotFocusableButton btn_surrender;
     }
 }

@@ -177,21 +177,15 @@ namespace APR_jahresprojekt_podoprygora
             }
         }
 
-        public static void highscore(string username, Label label, string sqlconnection)
+        public static void setHighscore(string username, int score, string sqlconnection)
         {
             
             try
             {
                 SqlConnection con = new SqlConnection(sqlconnection);
                 con.Open();
-                SqlCommand cmd = new SqlCommand("SELECT score FROM highscore where username = '"+username+"';", con);
-                SqlDataReader reader = cmd.ExecuteReader();
-                string? highscore = "";
-                while (reader.Read())
-                {
-                    highscore = reader[0].ToString();
-                }
-                label.Text = label.Text + highscore;
+                SqlCommand cmd = new SqlCommand("UPDATE dbo.highscore set score = '"+Convert.ToString(score)+"' WHERE username = '"+username+"' ", con);
+                cmd.ExecuteNonQuery();
                 con.Close();
             }
             catch (Exception ex)
@@ -206,9 +200,9 @@ namespace APR_jahresprojekt_podoprygora
             {
                 SqlConnection con = new SqlConnection(sqlconnection);
                 con.Open();
-                SqlCommand cmd = new SqlCommand("SELECT score FROM highscore where username = '" + username + "';", con);
+                SqlCommand cmd = new SqlCommand("SELECT score FROM dbo.highscore where username = '" + username + "';", con);
                 SqlDataReader reader = cmd.ExecuteReader();
-                string? highscore = "";
+                string highscore = "";
                 while (reader.Read())
                 {
                     highscore = reader[0].ToString();
@@ -236,6 +230,7 @@ namespace APR_jahresprojekt_podoprygora
                 {
                     con.Open();
                     cmd.CommandText = "INSERT INTO highscore (username, score) values ('"+username+"', 0)";
+                    cmd.ExecuteNonQuery();
                 }
                 else { return; }
             }

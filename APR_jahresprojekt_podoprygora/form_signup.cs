@@ -30,6 +30,7 @@ namespace APR_jahresprojekt_podoprygora
             bool dr = signup(tb_username.Text, tb_password.Text, constring);
             if (dr)
             {
+                User_highscoreSetup(tb_username.Text, constring);
                 this.Hide();
                 form_login form_Login = new form_login();
                 form_Login.ShowDialog();

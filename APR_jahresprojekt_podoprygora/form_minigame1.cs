@@ -36,7 +36,7 @@ namespace APR_jahresprojekt_podoprygora
         {
 
         }
-
+        
         private void InitializeField()
         {
             for (int i = 0; i < 4; i++)
@@ -144,7 +144,7 @@ namespace APR_jahresprojekt_podoprygora
         private void KeyPressed(object sender, KeyEventArgs e)
         {
             bool ifPicWasMoved = false;
-
+            ProcessDialogKey(e.KeyCode);
             switch (e.KeyCode.ToString())
             {
                 case "Right":
@@ -335,6 +335,48 @@ namespace APR_jahresprojekt_podoprygora
                 form_Minigame1.ShowDialog();
             }
             else return;
+        }
+        private bool IsGameLost()
+        {
+            for (int i = 0; i < 4; i++)
+            {
+                for (int j = 0; j < 4; j++)
+                {
+                    if (field[i, j] == 0)
+                    {
+                        return false;
+                    }
+                }
+            }
+            for (int i = 0; i < 4; i++)
+            {
+                for (int j = 0; j < 3; j++)
+                {
+                    // Check horizontally
+                    if (field[i, j] == field[i, j + 1])
+                    {
+                        return false;
+                    }
+                }
+            }
+
+            for (int j = 0; j < 4; j++)
+            {
+                for (int i = 0; i < 3; i++)
+                {
+                    // Check vertically
+                    if (field[i, j] == field[i + 1, j])
+                    {
+                        return false;
+                    }
+                }
+            }
+            int score = Convert.ToInt32(lb_score.Text);
+            if (score > Convert.ToInt32(getHighscore(session_username, constring)))
+            {
+                setHighscore(session_username, score, constring);
+            }
+            return true;
         }
     }
 }
