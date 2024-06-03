@@ -29,38 +29,36 @@
         private void InitializeComponent()
         {
             lb_score = new Label();
-            btn_surrender = new NotFocusableButton();
+            lb_scoretext = new Label();
             SuspendLayout();
             // 
             // lb_score
             // 
             lb_score.AutoSize = true;
             lb_score.Font = new Font("Microsoft Sans Serif", 18.25F, FontStyle.Regular, GraphicsUnit.Point);
-            lb_score.Location = new Point(15, 29);
+            lb_score.Location = new Point(109, 30);
             lb_score.Margin = new Padding(4, 0, 4, 0);
             lb_score.Name = "lb_score";
-            lb_score.Size = new Size(100, 29);
+            lb_score.Size = new Size(27, 29);
             lb_score.TabIndex = 16;
-            lb_score.Text = "Score:0";
+            lb_score.Text = "0";
             // 
-            // btn_surrender
+            // lb_scoretext
             // 
-            btn_surrender.CausesValidation = false;
-            btn_surrender.Location = new Point(176, 29);
-            btn_surrender.Name = "btn_surrender";
-            btn_surrender.Size = new Size(82, 29);
-            btn_surrender.TabIndex = 394593485;
-            btn_surrender.TabStop = false;
-            btn_surrender.Text = "Surrender";
-            btn_surrender.UseVisualStyleBackColor = true;
-            btn_surrender.Click += btn_surrender_Click;
+            lb_scoretext.AutoSize = true;
+            lb_scoretext.Font = new Font("Microsoft Sans Serif", 14F, FontStyle.Regular, GraphicsUnit.Point);
+            lb_scoretext.Location = new Point(12, 34);
+            lb_scoretext.Name = "lb_scoretext";
+            lb_scoretext.Size = new Size(65, 24);
+            lb_scoretext.TabIndex = 17;
+            lb_scoretext.Text = "Score:";
             // 
             // form_minigame1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(270, 361);
-            Controls.Add(btn_surrender);
+            Controls.Add(lb_scoretext);
             Controls.Add(lb_score);
             Margin = new Padding(4, 3, 4, 3);
             Name = "form_minigame1";
@@ -71,6 +69,6 @@
 
         #endregion
         private Label lb_score;
-        private NotFocusableButton btn_surrender;
+        private Label lb_scoretext;
     }
 }

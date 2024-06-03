@@ -36,7 +36,7 @@ namespace APR_jahresprojekt_podoprygora
         {
 
         }
-        
+
         private void InitializeField()
         {
             for (int i = 0; i < 4; i++)
@@ -166,6 +166,10 @@ namespace APR_jahresprojekt_podoprygora
                                         number[x, y] = number[x, y - 1];
                                         number[x, y - 1] = null;
                                         pictures[x, y].Location = new Point(pictures[x, y].Location.X + 56, pictures[x, y].Location.Y);
+                                        if (IsGameLost())
+                                        {
+                                            HandleGameOver();
+                                        }
                                     }
                                     else
                                     {
@@ -177,12 +181,16 @@ namespace APR_jahresprojekt_podoprygora
                                             number[x, y].Text = (a + b).ToString();
                                             score += (a + b);
                                             ChangeColor(a + b, x, y);
-                                            lb_score.Text = "Score: " + score;
+                                            lb_score.Text = "" + score;
                                             field[x, y - 1] = 0;
                                             this.Controls.Remove(pictures[x, y - 1]);
                                             this.Controls.Remove(number[x, y - 1]);
                                             pictures[x, y - 1] = null;
                                             number[x, y - 1] = null;
+                                        }
+                                        if (IsGameLost())
+                                        {
+                                            HandleGameOver();
                                         }
                                     }
                                 }
@@ -209,6 +217,10 @@ namespace APR_jahresprojekt_podoprygora
                                         number[x, y] = number[x, y + 1];
                                         number[x, y + 1] = null;
                                         pictures[x, y].Location = new Point(pictures[x, y].Location.X - 56, pictures[x, y].Location.Y);
+                                        if (IsGameLost())
+                                        {
+                                            HandleGameOver();
+                                        }
                                     }
                                     else
                                     {
@@ -220,12 +232,16 @@ namespace APR_jahresprojekt_podoprygora
                                             number[x, y].Text = (a + b).ToString();
                                             score += (a + b);
                                             ChangeColor(a + b, x, y);
-                                            lb_score.Text = "Score: " + score;
+                                            lb_score.Text = "" + score;
                                             field[x, y + 1] = 0;
                                             this.Controls.Remove(pictures[x, y + 1]);
                                             this.Controls.Remove(number[x, y + 1]);
                                             pictures[x, y + 1] = null;
                                             number[x, y + 1] = null;
+                                        }
+                                        if (IsGameLost())
+                                        {
+                                            HandleGameOver();
                                         }
                                     }
                                 }
@@ -252,6 +268,10 @@ namespace APR_jahresprojekt_podoprygora
                                         number[y, i] = number[y - 1, i];
                                         number[y - 1, i] = null;
                                         pictures[y, i].Location = new Point(pictures[y, i].Location.X, pictures[y, i].Location.Y + 56);
+                                        if (IsGameLost())
+                                        {
+                                            HandleGameOver();
+                                        }
                                     }
                                     else
                                     {
@@ -263,12 +283,16 @@ namespace APR_jahresprojekt_podoprygora
                                             number[y, i].Text = (a + b).ToString();
                                             score += (a + b);
                                             ChangeColor(a + b, y, i);
-                                            lb_score.Text = "Score: " + score;
+                                            lb_score.Text = "" + score;
                                             field[y - 1, i] = 0;
                                             this.Controls.Remove(pictures[y - 1, i]);
                                             this.Controls.Remove(number[y - 1, i]);
                                             pictures[y - 1, i] = null;
                                             number[y - 1, i] = null;
+                                        }
+                                        if(IsGameLost())
+                                        {
+                                            HandleGameOver();
                                         }
                                     }
                                 }
@@ -295,6 +319,10 @@ namespace APR_jahresprojekt_podoprygora
                                         number[y, i] = number[y + 1, i];
                                         number[y + 1, i] = null;
                                         pictures[y, i].Location = new Point(pictures[y, i].Location.X, pictures[y, i].Location.Y - 56);
+                                        if (IsGameLost())
+                                        {
+                                           HandleGameOver();
+                                        }
                                     }
                                     else
                                     {
@@ -306,12 +334,16 @@ namespace APR_jahresprojekt_podoprygora
                                             number[y, i].Text = (a + b).ToString();
                                             score += (a + b);
                                             ChangeColor(a + b, y, i);
-                                            lb_score.Text = "Score: " + score;
+                                            lb_score.Text = "" + score;
                                             field[y + 1, i] = 0;
                                             this.Controls.Remove(pictures[y + 1, i]);
                                             this.Controls.Remove(number[y + 1, i]);
                                             pictures[y + 1, i] = null;
                                             number[y + 1, i] = null;
+                                        }
+                                        if (IsGameLost())
+                                        {
+                                            HandleGameOver();
                                         }
                                     }
                                 }
@@ -348,14 +380,14 @@ namespace APR_jahresprojekt_podoprygora
                     }
                 }
             }
+
             for (int i = 0; i < 4; i++)
             {
                 for (int j = 0; j < 3; j++)
                 {
-                    // Check horizontally
                     if (field[i, j] == field[i, j + 1])
                     {
-                        return false;
+                        return true;
                     }
                 }
             }
@@ -364,19 +396,29 @@ namespace APR_jahresprojekt_podoprygora
             {
                 for (int i = 0; i < 3; i++)
                 {
-                    // Check vertically
                     if (field[i, j] == field[i + 1, j])
                     {
-                        return false;
+                        return true;
                     }
                 }
             }
+
+            return true;
+        }
+        private void HandleGameOver()
+        {
             int score = Convert.ToInt32(lb_score.Text);
             if (score > Convert.ToInt32(getHighscore(session_username, constring)))
             {
                 setHighscore(session_username, score, constring);
             }
-            return true;
+            DialogResult dr = MessageBox.Show("You lost! Your final score is " + score + ". Your highscore is " + getHighscore(session_username, constring) + ".", "Game Over!", MessageBoxButtons.OK);
+            if (dr == DialogResult.OK)
+            {
+                this.Hide();
+                form_minigame1 form_Minigame1 = new form_minigame1();
+                form_Minigame1.ShowDialog();
+            }
         }
     }
 }
