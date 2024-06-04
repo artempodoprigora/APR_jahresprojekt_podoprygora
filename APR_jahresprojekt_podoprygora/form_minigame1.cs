@@ -24,12 +24,12 @@ namespace APR_jahresprojekt_podoprygora
         public form_minigame1()
         {
             InitializeComponent();
-            this.KeyDown += new KeyEventHandler(KeyPressed);
+            this.KeyDown += new KeyEventHandler(keyPressed);
             field[0, 0] = 1;
             field[0, 1] = 1;
-            InitializeField();
-            InitializePictures();
-            CreateNewPicture();
+            initializeField();
+            initializePictures();
+            createNewPicture();
         }
 
         public void form_minigame1_Load(object sender, EventArgs e)
@@ -37,7 +37,7 @@ namespace APR_jahresprojekt_podoprygora
 
         }
 
-        private void InitializeField()
+        private void initializeField()
         {
             for (int i = 0; i < 4; i++)
             {
@@ -52,7 +52,7 @@ namespace APR_jahresprojekt_podoprygora
             }
         }
 
-        private void CreateNewPicture()
+        private void createNewPicture()
         {
             Random rnd = new Random();
             int a = rnd.Next(0, 4);
@@ -77,7 +77,7 @@ namespace APR_jahresprojekt_podoprygora
             pictures[a, b].BringToFront();
         }
 
-        private void InitializePictures()
+        private void initializePictures()
         {
             pictures[0, 0] = new PictureBox();
             number[0, 0] = new System.Windows.Forms.Label();
@@ -106,7 +106,7 @@ namespace APR_jahresprojekt_podoprygora
             pictures[0, 1].BringToFront();
         }
 
-        private void ChangeColor(int num, int x, int y)
+        private void changeColor(int num, int x, int y)
         {
             switch (num)
             {
@@ -141,7 +141,7 @@ namespace APR_jahresprojekt_podoprygora
             }
         }
 
-        private void KeyPressed(object sender, KeyEventArgs e)
+        private void keyPressed(object sender, KeyEventArgs e)
         {
             bool ifPicWasMoved = false;
             ProcessDialogKey(e.KeyCode);
@@ -180,7 +180,7 @@ namespace APR_jahresprojekt_podoprygora
                                             ifPicWasMoved = true;
                                             number[x, y].Text = (a + b).ToString();
                                             score += (a + b);
-                                            ChangeColor(a + b, x, y);
+                                            changeColor(a + b, x, y);
                                             lb_score.Text = "" + score;
                                             field[x, y - 1] = 0;
                                             this.Controls.Remove(pictures[x, y - 1]);
@@ -231,7 +231,7 @@ namespace APR_jahresprojekt_podoprygora
                                             ifPicWasMoved = true;
                                             number[x, y].Text = (a + b).ToString();
                                             score += (a + b);
-                                            ChangeColor(a + b, x, y);
+                                            changeColor(a + b, x, y);
                                             lb_score.Text = "" + score;
                                             field[x, y + 1] = 0;
                                             this.Controls.Remove(pictures[x, y + 1]);
@@ -282,7 +282,7 @@ namespace APR_jahresprojekt_podoprygora
                                             ifPicWasMoved = true;
                                             number[y, i].Text = (a + b).ToString();
                                             score += (a + b);
-                                            ChangeColor(a + b, y, i);
+                                            changeColor(a + b, y, i);
                                             lb_score.Text = "" + score;
                                             field[y - 1, i] = 0;
                                             this.Controls.Remove(pictures[y - 1, i]);
@@ -290,7 +290,7 @@ namespace APR_jahresprojekt_podoprygora
                                             pictures[y - 1, i] = null;
                                             number[y - 1, i] = null;
                                         }
-                                        if(isGameLost())
+                                        if (isGameLost())
                                         {
                                             handleGameOver();
                                         }
@@ -321,7 +321,7 @@ namespace APR_jahresprojekt_podoprygora
                                         pictures[y, i].Location = new Point(pictures[y, i].Location.X, pictures[y, i].Location.Y - 56);
                                         if (isGameLost())
                                         {
-                                           handleGameOver();
+                                            handleGameOver();
                                         }
                                     }
                                     else
@@ -333,7 +333,7 @@ namespace APR_jahresprojekt_podoprygora
                                             ifPicWasMoved = true;
                                             number[y, i].Text = (a + b).ToString();
                                             score += (a + b);
-                                            ChangeColor(a + b, y, i);
+                                            changeColor(a + b, y, i);
                                             lb_score.Text = "" + score;
                                             field[y + 1, i] = 0;
                                             this.Controls.Remove(pictures[y + 1, i]);
@@ -353,7 +353,7 @@ namespace APR_jahresprojekt_podoprygora
                     break;
             }
             if (ifPicWasMoved)
-                CreateNewPicture();
+                createNewPicture();
         }
 
         private void btn_surrender_Click(object sender, EventArgs e)
@@ -415,10 +415,15 @@ namespace APR_jahresprojekt_podoprygora
             DialogResult dr = MessageBox.Show("You lost! Your final score is " + score + ". Your highscore is " + getHighscore(session_username, constring) + ".", "Game Over!", MessageBoxButtons.OK);
             if (dr == DialogResult.OK)
             {
-                this.Hide();
+                this.Close();
                 form_minigame1 form_Minigame1 = new form_minigame1();
                 form_Minigame1.ShowDialog();
             }
+        }
+
+        private void form_minigame1_Load_1(object sender, EventArgs e)
+        {
+
         }
     }
 }

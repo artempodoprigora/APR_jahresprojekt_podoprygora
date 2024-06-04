@@ -49,14 +49,14 @@ namespace APR_jahresprojekt_podoprygora
             con.Close();
             form_login form_Login = new form_login();
             form_Login.ShowDialog();
-            this.Hide();
+            this.Close();
         }
 
         private void llb_back_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            this.Hide();
             form_login form_Login = new form_login();
             form_Login.ShowDialog();
+            this.Close();
         }
     }
 }

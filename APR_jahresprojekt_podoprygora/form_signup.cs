@@ -31,9 +31,12 @@ namespace APR_jahresprojekt_podoprygora
             if (dr)
             {
                 User_highscoreSetup(tb_username.Text, constring);
-                this.Hide();
-                form_login form_Login = new form_login();
-                form_Login.ShowDialog();
+                using (form_login frm = new form_login())
+                {
+
+                    frm.ShowDialog();
+
+                }
             }
             else
             {
@@ -43,9 +46,12 @@ namespace APR_jahresprojekt_podoprygora
 
         private void llb_AHAC_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            this.Hide();
-            form_login form_Login = new form_login();
-            form_Login.ShowDialog();
+            using (form_login frm = new form_login())
+            {
+
+                frm.ShowDialog();
+
+            }
         }
 
         private void form_signup_Load(object sender, EventArgs e)
