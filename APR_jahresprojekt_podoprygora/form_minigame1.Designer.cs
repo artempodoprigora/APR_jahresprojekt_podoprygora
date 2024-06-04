@@ -63,7 +63,7 @@
             Margin = new Padding(4, 3, 4, 3);
             Name = "form_minigame1";
             Text = "2048";
-            Load += form_minigame1_Load_1;
+            Load += form_minigame1_Load;
             ResumeLayout(false);
             PerformLayout();
         }

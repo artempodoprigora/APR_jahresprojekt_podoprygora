@@ -415,15 +415,22 @@ namespace APR_jahresprojekt_podoprygora
             DialogResult dr = MessageBox.Show("You lost! Your final score is " + score + ". Your highscore is " + getHighscore(session_username, constring) + ".", "Game Over!", MessageBoxButtons.OK);
             if (dr == DialogResult.OK)
             {
-                this.Close();
+                this.Hide();
                 form_minigame1 form_Minigame1 = new form_minigame1();
                 form_Minigame1.ShowDialog();
             }
         }
-
-        private void form_minigame1_Load_1(object sender, EventArgs e)
+        private void form_minigame1_FormClosing(object sender, FormClosingEventArgs e)
         {
-
+            var confirmation = MessageBox.Show("Sure to close form?", "Confirm", MessageBoxButtons.YesNo);
+            if (confirmation == DialogResult.No)
+            {
+                e.Cancel = true;
+            }
+            else if (confirmation == DialogResult.Yes)
+            {
+                Environment.Exit(0);
+            }
         }
     }
 }

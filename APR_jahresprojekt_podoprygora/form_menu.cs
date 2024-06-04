@@ -13,7 +13,7 @@ namespace APR_jahresprojekt_podoprygora
         {
             using(form_minigame1 frm = new form_minigame1())
                 {
-
+                this.Hide();
                 frm.ShowDialog();
 
             }
