@@ -184,7 +184,7 @@ namespace APR_jahresprojekt_podoprygora
             {
                 SqlConnection con = new SqlConnection(sqlconnection);
                 con.Open();
-                SqlCommand cmd = new SqlCommand("UPDATE dbo.highscore set score = '"+Convert.ToString(score)+"' WHERE username = '"+username+"' ", con);
+                SqlCommand cmd = new SqlCommand("UPDATE dbo.highscore set score = '"+score+"' WHERE username = '"+username+"' ", con);
                 cmd.ExecuteNonQuery();
                 con.Close();
             }

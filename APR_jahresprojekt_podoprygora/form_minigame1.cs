@@ -34,7 +34,8 @@ namespace APR_jahresprojekt_podoprygora
 
         public void form_minigame1_Load(object sender, EventArgs e)
         {
-
+            score = 0;
+            this.StartPosition = FormStartPosition.CenterScreen;
         }
 
         private void initializeField()
@@ -134,6 +135,9 @@ namespace APR_jahresprojekt_podoprygora
                 case 1024:
                     pictures[x, y].BackColor = Color.Pink;
                     break;
+                case 2048:
+                    pictures[x, y].BackColor = Color.Purple;
+                    break;
                 default:
                     pictures[x, y].BackColor = Color.Green;
                     break;
@@ -187,6 +191,10 @@ namespace APR_jahresprojekt_podoprygora
                                             this.Controls.Remove(number[x, y - 1]);
                                             pictures[x, y - 1] = null;
                                             number[x, y - 1] = null;
+                                            if (score == 2048)
+                                            {
+                                                handleGameWon();
+                                            }
                                         }
                                         if (isGameLost())
                                         {
@@ -238,6 +246,10 @@ namespace APR_jahresprojekt_podoprygora
                                             this.Controls.Remove(number[x, y + 1]);
                                             pictures[x, y + 1] = null;
                                             number[x, y + 1] = null;
+                                            if (score == 2048)
+                                            {
+                                                handleGameWon();
+                                            }
                                         }
                                         if (isGameLost())
                                         {
@@ -289,6 +301,10 @@ namespace APR_jahresprojekt_podoprygora
                                             this.Controls.Remove(number[y - 1, i]);
                                             pictures[y - 1, i] = null;
                                             number[y - 1, i] = null;
+                                            if (score == 2048)
+                                            {
+                                                handleGameWon();
+                                            }
                                         }
                                         if (isGameLost())
                                         {
@@ -340,6 +356,10 @@ namespace APR_jahresprojekt_podoprygora
                                             this.Controls.Remove(number[y + 1, i]);
                                             pictures[y + 1, i] = null;
                                             number[y + 1, i] = null;
+                                            if (score == 2048)
+                                            {
+                                                handleGameWon();
+                                            }
                                         }
                                         if (isGameLost())
                                         {
@@ -424,14 +444,21 @@ namespace APR_jahresprojekt_podoprygora
                 Environment.Exit(0);
             }
         }
-        private void form_minigame1_FormClosing(object sender, FormClosingEventArgs e)
+        private void handleGameWon()
         {
-            var confirmation = MessageBox.Show("Sure to close form?", "Confirm", MessageBoxButtons.YesNo);
-            if (confirmation == DialogResult.No)
+            int score = Convert.ToInt32(lb_score.Text);
+            if (score > Convert.ToInt32(getHighscore(session_username, constring)))
             {
-                e.Cancel = true;
+                setHighscore(session_username, score, constring);
             }
-            else if (confirmation == DialogResult.Yes)
+            DialogResult dr = MessageBox.Show("You won! Your final score is " + score + ". Your highscore is " + getHighscore(session_username, constring) + ".\nPlay Again?", "You won!", MessageBoxButtons.YesNo);
+            if (dr == DialogResult.Yes)
+            {
+                this.Hide();
+                form_minigame1 form_Minigame1 = new form_minigame1();
+                form_Minigame1.ShowDialog();
+            }
+            else if (dr == DialogResult.No)
             {
                 Environment.Exit(0);
             }
