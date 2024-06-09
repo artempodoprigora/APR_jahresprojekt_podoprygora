@@ -412,12 +412,16 @@ namespace APR_jahresprojekt_podoprygora
             {
                 setHighscore(session_username, score, constring);
             }
-            DialogResult dr = MessageBox.Show("You lost! Your final score is " + score + ". Your highscore is " + getHighscore(session_username, constring) + ".", "Game Over!", MessageBoxButtons.OK);
-            if (dr == DialogResult.OK)
+            DialogResult dr = MessageBox.Show("You lost! Your final score is " + score + ". Your highscore is " + getHighscore(session_username, constring) + ".\nPlay Again?", "Game Over!", MessageBoxButtons.YesNo);
+            if (dr == DialogResult.Yes)
             {
                 this.Hide();
                 form_minigame1 form_Minigame1 = new form_minigame1();
                 form_Minigame1.ShowDialog();
+            }
+            else if(dr == DialogResult.No)
+            {
+                Environment.Exit(0);
             }
         }
         private void form_minigame1_FormClosing(object sender, FormClosingEventArgs e)
