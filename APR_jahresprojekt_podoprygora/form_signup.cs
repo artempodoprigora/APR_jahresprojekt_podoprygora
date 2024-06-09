@@ -33,9 +33,8 @@ namespace APR_jahresprojekt_podoprygora
                 User_highscoreSetup(tb_username.Text, constring);
                 using (form_login frm = new form_login())
                 {
-
+                    this.Hide();
                     frm.ShowDialog();
-
                 }
             }
             else
@@ -48,9 +47,8 @@ namespace APR_jahresprojekt_podoprygora
         {
             using (form_login frm = new form_login())
             {
-
+                this.Hide();
                 frm.ShowDialog();
-
             }
         }
 
