@@ -41,7 +41,7 @@
             // 
             // tb_password
             // 
-            tb_password.Location = new Point(120, 145);
+            tb_password.Location = new Point(112, 151);
             tb_password.Margin = new Padding(2);
             tb_password.Name = "tb_password";
             tb_password.Size = new Size(188, 23);
@@ -50,7 +50,7 @@
             // 
             // btn_login
             // 
-            btn_login.Location = new Point(230, 172);
+            btn_login.Location = new Point(222, 178);
             btn_login.Margin = new Padding(2);
             btn_login.Name = "btn_login";
             btn_login.Size = new Size(78, 23);
@@ -62,7 +62,7 @@
             // lb_username
             // 
             lb_username.AutoSize = true;
-            lb_username.Location = new Point(120, 80);
+            lb_username.Location = new Point(112, 86);
             lb_username.Margin = new Padding(2, 0, 2, 0);
             lb_username.Name = "lb_username";
             lb_username.Size = new Size(60, 15);
@@ -84,7 +84,7 @@
             // 
             // tb_username
             // 
-            tb_username.Location = new Point(120, 102);
+            tb_username.Location = new Point(112, 108);
             tb_username.Margin = new Padding(2);
             tb_username.Name = "tb_username";
             tb_username.Size = new Size(188, 23);
@@ -93,7 +93,7 @@
             // lb_password
             // 
             lb_password.AutoSize = true;
-            lb_password.Location = new Point(120, 128);
+            lb_password.Location = new Point(112, 134);
             lb_password.Margin = new Padding(2, 0, 2, 0);
             lb_password.Name = "lb_password";
             lb_password.Size = new Size(57, 15);
@@ -105,7 +105,7 @@
             // 
             llb_forgotPassword.AutoSize = true;
             llb_forgotPassword.LinkColor = Color.Black;
-            llb_forgotPassword.Location = new Point(198, 128);
+            llb_forgotPassword.Location = new Point(190, 134);
             llb_forgotPassword.Margin = new Padding(2, 0, 2, 0);
             llb_forgotPassword.Name = "llb_forgotPassword";
             llb_forgotPassword.Size = new Size(100, 15);
@@ -118,7 +118,7 @@
             // 
             lb_gamename.AutoSize = true;
             lb_gamename.Font = new Font("Segoe UI", 14F, FontStyle.Regular, GraphicsUnit.Point);
-            lb_gamename.Location = new Point(188, 46);
+            lb_gamename.Location = new Point(173, 52);
             lb_gamename.Margin = new Padding(2, 0, 2, 0);
             lb_gamename.Name = "lb_gamename";
             lb_gamename.Size = new Size(52, 25);
