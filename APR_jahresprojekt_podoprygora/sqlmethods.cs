@@ -84,14 +84,27 @@ namespace APR_jahresprojekt_podoprygora
             {
                 SqlConnection con = new SqlConnection(sqlconnection);
                 con.Open();
-                SqlCommand cmd = new SqlCommand("SELECT password FROM dbo.login WHERE username LIKE '" + username + "';", con);
-                SqlDataReader reader = cmd.ExecuteReader();
-                while (reader.Read())
+                SqlCommand cmd = new SqlCommand("SELECT COUNT(*) FROM dbo.login WHERE username LIKE '" + username + "'", con);
+                cmd.Parameters.AddWithValue("username", username);
+                int count = (int)cmd.ExecuteScalar();
+                if (count > 0)
                 {
-                    hashedPassword = reader.GetString(0);
+                    cmd.CommandText = "SELECT password FROM dbo.login WHERE username LIKE '" + username + "';";
+                    SqlDataReader reader = cmd.ExecuteReader();
+                    while (reader.Read())
+                    {
+                        hashedPassword = reader.GetString(0);
+                    }
+                    bool result = BCrypt.CheckPassword(password, hashedPassword);
+                    con.Close();
+                    return result;
                 }
-                bool result = BCrypt.CheckPassword(password, hashedPassword);
-                return result;
+                else
+                {
+                    con.Close();
+                    return false;
+                }
+
             }
             catch (Exception ex)
             {
@@ -246,12 +259,14 @@ namespace APR_jahresprojekt_podoprygora
             {
                 SqlConnection con = new SqlConnection(sqlconnection);
                 con.Open();
-                SqlCommand cmd = new SqlCommand("SELECT username, score FROM dbo.highscore ORDER BY score DESC;", con);
+                SqlCommand cmd = new SqlCommand("SELECT TOP 10 username, score FROM dbo.highscore ORDER BY score DESC;", con);
                 SqlDataReader reader = cmd.ExecuteReader();
                 label.Text = "Username\n";
+                int i = 1;
                 while (reader.Read())
                 {
-                    label.Text =" "+label.Text+" "+reader[0].ToString()+"\n";
+                    label.Text =""+label.Text+" "+i+" "+reader[0].ToString()+"\n";
+                    i++;
                 }
                 con.Close();
             }
@@ -266,7 +281,7 @@ namespace APR_jahresprojekt_podoprygora
             {
                 SqlConnection con = new SqlConnection(sqlconnection);
                 con.Open();
-                SqlCommand cmd = new SqlCommand("SELECT score FROM dbo.highscore ORDER BY score DESC;", con);
+                SqlCommand cmd = new SqlCommand("SELECT TOP 10 score FROM dbo.highscore ORDER BY score DESC;", con);
                 SqlDataReader reader = cmd.ExecuteReader();
                 label.Text = "Score\n";
                 while (reader.Read())
@@ -279,6 +294,6 @@ namespace APR_jahresprojekt_podoprygora
             {
                 MessageBox.Show(ex.Message);
             }
-        }
+        }   
     }
 }

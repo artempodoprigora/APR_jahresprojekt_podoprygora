@@ -93,7 +93,7 @@
             btn_signup.Name = "btn_signup";
             btn_signup.Size = new Size(78, 25);
             btn_signup.TabIndex = 5;
-            btn_signup.Text = "Sign Up";
+            btn_signup.Text = "Sign up\r\n";
             btn_signup.UseVisualStyleBackColor = true;
             btn_signup.Visible = false;
             btn_signup.Click += btn_signup_Click;
@@ -125,7 +125,7 @@
             Margin = new Padding(2);
             Name = "form_signup";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "form_signup";
+            Text = "Sign Up";
             Load += form_signup_Load;
             ResumeLayout(false);
             PerformLayout();

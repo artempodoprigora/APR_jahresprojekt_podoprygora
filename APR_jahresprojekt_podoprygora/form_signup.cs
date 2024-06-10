@@ -27,7 +27,7 @@ namespace APR_jahresprojekt_podoprygora
 
         private void btn_signup_Click(object sender, EventArgs e)
         {   
-            if (tb_password.Text.Length > 8)
+            if (tb_password.Text.Length >= 8)
             {
                 bool dr = signup(tb_username.Text, tb_password.Text, constring);
                 if (dr)

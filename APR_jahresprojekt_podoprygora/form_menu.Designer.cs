@@ -64,7 +64,7 @@
             // 
             // btn_play
             // 
-            btn_play.Location = new Point(198, 36);
+            btn_play.Location = new Point(198, 41);
             btn_play.Name = "btn_play";
             btn_play.Size = new Size(110, 38);
             btn_play.TabIndex = 3;

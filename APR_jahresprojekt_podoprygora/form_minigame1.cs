@@ -464,9 +464,5 @@ namespace APR_jahresprojekt_podoprygora
             }
         }
 
-        private void lb_score_Click(object sender, EventArgs e)
-        {
-
-        }
     }
 }
