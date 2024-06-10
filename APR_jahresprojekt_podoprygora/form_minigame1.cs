@@ -439,7 +439,7 @@ namespace APR_jahresprojekt_podoprygora
                 form_minigame1 form_Minigame1 = new form_minigame1();
                 form_Minigame1.ShowDialog();
             }
-            else if(dr == DialogResult.No)
+            else if (dr == DialogResult.No)
             {
                 Environment.Exit(0);
             }
@@ -462,6 +462,11 @@ namespace APR_jahresprojekt_podoprygora
             {
                 Environment.Exit(0);
             }
+        }
+
+        private void lb_score_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -39,7 +39,7 @@ namespace APR_jahresprojekt_podoprygora
             }
             else if (tb_newPassword.Text.Length < 8)
             {
-                MessageBox.Show("Minimal password length is 8 symbols.");
+                MessageBox.Show("Minimal password length is 8 symbols.", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -55,8 +55,8 @@ namespace APR_jahresprojekt_podoprygora
         private void llb_back_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             form_login form_Login = new form_login();
+            this.Hide();
             form_Login.ShowDialog();
-            this.Close();
         }
     }
 }

@@ -35,29 +35,30 @@
             // lb_score
             // 
             lb_score.AutoSize = true;
-            lb_score.Font = new Font("Microsoft Sans Serif", 18.25F, FontStyle.Regular, GraphicsUnit.Point);
-            lb_score.Location = new Point(156, 50);
+            lb_score.Font = new Font("Microsoft Sans Serif", 14F, FontStyle.Regular, GraphicsUnit.Point);
+            lb_score.Location = new Point(110, 16);
             lb_score.Margin = new Padding(6, 0, 6, 0);
             lb_score.Name = "lb_score";
-            lb_score.Size = new Size(39, 42);
+            lb_score.Size = new Size(20, 24);
             lb_score.TabIndex = 16;
             lb_score.Text = "0";
+            lb_score.Click += lb_score_Click;
             // 
             // lb_scoretext
             // 
             lb_scoretext.AutoSize = true;
             lb_scoretext.Font = new Font("Microsoft Sans Serif", 14F, FontStyle.Regular, GraphicsUnit.Point);
-            lb_scoretext.Location = new Point(17, 57);
+            lb_scoretext.Location = new Point(14, 16);
             lb_scoretext.Margin = new Padding(4, 0, 4, 0);
             lb_scoretext.Name = "lb_scoretext";
-            lb_scoretext.Size = new Size(96, 32);
+            lb_scoretext.Size = new Size(65, 24);
             lb_scoretext.TabIndex = 17;
             lb_scoretext.Text = "Score:";
             // 
             // form_minigame1
             // 
             AutoScaleMode = AutoScaleMode.Inherit;
-            ClientSize = new Size(386, 602);
+            ClientSize = new Size(284, 361);
             Controls.Add(lb_scoretext);
             Controls.Add(lb_score);
             Margin = new Padding(6, 5, 6, 5);

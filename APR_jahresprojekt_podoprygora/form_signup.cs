@@ -26,21 +26,29 @@ namespace APR_jahresprojekt_podoprygora
         }
 
         private void btn_signup_Click(object sender, EventArgs e)
-        {
-            bool dr = signup(tb_username.Text, tb_password.Text, constring);
-            if (dr)
+        {   
+            if (tb_password.Text.Length > 8)
             {
-                User_highscoreSetup(tb_username.Text, constring);
-                using (form_login frm = new form_login())
+                bool dr = signup(tb_username.Text, tb_password.Text, constring);
+                if (dr)
                 {
-                    this.Hide();
-                    frm.ShowDialog();
+                    User_highscoreSetup(tb_username.Text, constring);
+                    using (form_login frm = new form_login())
+                    {
+                        this.Hide();
+                        frm.ShowDialog();
+                    }
+                }
+                else
+                {
+                    return;
                 }
             }
             else
             {
-                return;
+                MessageBox.Show("Password must be at least 8 characters long!", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+            
         }
 
         private void llb_AHAC_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)

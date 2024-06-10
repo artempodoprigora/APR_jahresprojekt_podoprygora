@@ -57,7 +57,7 @@
             // tb_username
             // 
             tb_username.Location = new Point(50, 105);
-            tb_username.Margin = new Padding(2, 2, 2, 2);
+            tb_username.Margin = new Padding(2);
             tb_username.Name = "tb_username";
             tb_username.Size = new Size(148, 23);
             tb_username.TabIndex = 1;
@@ -65,7 +65,7 @@
             // btn_usernameCheck
             // 
             btn_usernameCheck.Location = new Point(120, 132);
-            btn_usernameCheck.Margin = new Padding(2, 2, 2, 2);
+            btn_usernameCheck.Margin = new Padding(2);
             btn_usernameCheck.Name = "btn_usernameCheck";
             btn_usernameCheck.Size = new Size(78, 22);
             btn_usernameCheck.TabIndex = 2;
@@ -76,7 +76,7 @@
             // tb_newPassword
             // 
             tb_newPassword.Location = new Point(50, 156);
-            tb_newPassword.Margin = new Padding(2, 2, 2, 2);
+            tb_newPassword.Margin = new Padding(2);
             tb_newPassword.Name = "tb_newPassword";
             tb_newPassword.Size = new Size(148, 23);
             tb_newPassword.TabIndex = 3;
@@ -97,7 +97,7 @@
             // btn_change
             // 
             btn_change.Location = new Point(120, 183);
-            btn_change.Margin = new Padding(2, 2, 2, 2);
+            btn_change.Margin = new Padding(2);
             btn_change.Name = "btn_change";
             btn_change.Size = new Size(78, 24);
             btn_change.TabIndex = 5;
@@ -132,8 +132,9 @@
             Controls.Add(btn_usernameCheck);
             Controls.Add(tb_username);
             Controls.Add(lb_username);
-            Margin = new Padding(2, 2, 2, 2);
+            Margin = new Padding(2);
             Name = "form_forgotPassword";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Password recovery";
             Load += forgotPassword_Load;
             ((System.ComponentModel.ISupportInitialize)errorProvider1).EndInit();

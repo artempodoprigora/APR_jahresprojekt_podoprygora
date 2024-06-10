@@ -28,182 +28,73 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(form_menu));
-            logo_game1 = new PictureBox();
-            logo_game2 = new PictureBox();
-            pictureBox1 = new PictureBox();
-            pictureBox2 = new PictureBox();
-            pictureBox3 = new PictureBox();
-            pictureBox4 = new PictureBox();
-            pictureBox5 = new PictureBox();
-            pictureBox6 = new PictureBox();
-            pictureBox7 = new PictureBox();
-            ((System.ComponentModel.ISupportInitialize)logo_game1).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)logo_game2).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox5).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox6).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox7).BeginInit();
+            label1 = new Label();
+            lb_highscoreUsername = new Label();
+            lb_highscoreList = new Label();
+            btn_play = new Button();
             SuspendLayout();
             // 
-            // logo_game1
+            // label1
             // 
-            logo_game1.BorderStyle = BorderStyle.Fixed3D;
-            logo_game1.Location = new Point(88, 80);
-            logo_game1.Margin = new Padding(2);
-            logo_game1.Name = "logo_game1";
-            logo_game1.Size = new Size(91, 78);
-            logo_game1.TabIndex = 0;
-            logo_game1.TabStop = false;
-            logo_game1.Click += logo_game1_Click;
+            label1.AutoSize = true;
+            label1.Font = new Font("Microsoft Sans Serif", 14F, FontStyle.Regular, GraphicsUnit.Point);
+            label1.Location = new Point(12, 41);
+            label1.Name = "label1";
+            label1.Size = new Size(140, 24);
+            label1.TabIndex = 0;
+            label1.Text = "Best highscore:";
             // 
-            // logo_game2
+            // lb_highscoreUsername
             // 
-            logo_game2.BackgroundImageLayout = ImageLayout.Center;
-            logo_game2.BorderStyle = BorderStyle.Fixed3D;
-            logo_game2.Image = (Image)resources.GetObject("logo_game2.Image");
-            logo_game2.InitialImage = (Image)resources.GetObject("logo_game2.InitialImage");
-            logo_game2.Location = new Point(197, 80);
-            logo_game2.Margin = new Padding(2);
-            logo_game2.Name = "logo_game2";
-            logo_game2.Size = new Size(91, 78);
-            logo_game2.TabIndex = 1;
-            logo_game2.TabStop = false;
+            lb_highscoreUsername.AutoSize = true;
+            lb_highscoreUsername.Font = new Font("Microsoft Sans Serif", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            lb_highscoreUsername.Location = new Point(12, 65);
+            lb_highscoreUsername.Name = "lb_highscoreUsername";
+            lb_highscoreUsername.Size = new Size(0, 17);
+            lb_highscoreUsername.TabIndex = 1;
             // 
-            // pictureBox1
+            // lb_highscoreList
             // 
-            pictureBox1.BackgroundImageLayout = ImageLayout.Center;
-            pictureBox1.BorderStyle = BorderStyle.Fixed3D;
-            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.InitialImage = (Image)resources.GetObject("pictureBox1.InitialImage");
-            pictureBox1.Location = new Point(88, 174);
-            pictureBox1.Margin = new Padding(2);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(91, 78);
-            pictureBox1.TabIndex = 2;
-            pictureBox1.TabStop = false;
+            lb_highscoreList.AutoSize = true;
+            lb_highscoreList.Font = new Font("Microsoft Sans Serif", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            lb_highscoreList.Location = new Point(114, 67);
+            lb_highscoreList.Name = "lb_highscoreList";
+            lb_highscoreList.Size = new Size(0, 17);
+            lb_highscoreList.TabIndex = 2;
             // 
-            // pictureBox2
+            // btn_play
             // 
-            pictureBox2.BackgroundImageLayout = ImageLayout.Center;
-            pictureBox2.BorderStyle = BorderStyle.Fixed3D;
-            pictureBox2.Image = (Image)resources.GetObject("pictureBox2.Image");
-            pictureBox2.InitialImage = (Image)resources.GetObject("pictureBox2.InitialImage");
-            pictureBox2.Location = new Point(197, 174);
-            pictureBox2.Margin = new Padding(2);
-            pictureBox2.Name = "pictureBox2";
-            pictureBox2.Size = new Size(91, 78);
-            pictureBox2.TabIndex = 3;
-            pictureBox2.TabStop = false;
-            // 
-            // pictureBox3
-            // 
-            pictureBox3.BackgroundImageLayout = ImageLayout.Center;
-            pictureBox3.BorderStyle = BorderStyle.Fixed3D;
-            pictureBox3.Image = (Image)resources.GetObject("pictureBox3.Image");
-            pictureBox3.InitialImage = (Image)resources.GetObject("pictureBox3.InitialImage");
-            pictureBox3.Location = new Point(307, 80);
-            pictureBox3.Margin = new Padding(2);
-            pictureBox3.Name = "pictureBox3";
-            pictureBox3.Size = new Size(91, 78);
-            pictureBox3.TabIndex = 4;
-            pictureBox3.TabStop = false;
-            // 
-            // pictureBox4
-            // 
-            pictureBox4.BackgroundImageLayout = ImageLayout.Center;
-            pictureBox4.BorderStyle = BorderStyle.Fixed3D;
-            pictureBox4.Image = (Image)resources.GetObject("pictureBox4.Image");
-            pictureBox4.InitialImage = (Image)resources.GetObject("pictureBox4.InitialImage");
-            pictureBox4.Location = new Point(307, 174);
-            pictureBox4.Margin = new Padding(2);
-            pictureBox4.Name = "pictureBox4";
-            pictureBox4.Size = new Size(91, 78);
-            pictureBox4.TabIndex = 5;
-            pictureBox4.TabStop = false;
-            // 
-            // pictureBox5
-            // 
-            pictureBox5.BackgroundImageLayout = ImageLayout.Center;
-            pictureBox5.BorderStyle = BorderStyle.Fixed3D;
-            pictureBox5.Image = (Image)resources.GetObject("pictureBox5.Image");
-            pictureBox5.InitialImage = (Image)resources.GetObject("pictureBox5.InitialImage");
-            pictureBox5.Location = new Point(88, 263);
-            pictureBox5.Margin = new Padding(2);
-            pictureBox5.Name = "pictureBox5";
-            pictureBox5.Size = new Size(91, 78);
-            pictureBox5.TabIndex = 6;
-            pictureBox5.TabStop = false;
-            // 
-            // pictureBox6
-            // 
-            pictureBox6.BackgroundImageLayout = ImageLayout.Center;
-            pictureBox6.BorderStyle = BorderStyle.Fixed3D;
-            pictureBox6.Image = (Image)resources.GetObject("pictureBox6.Image");
-            pictureBox6.InitialImage = (Image)resources.GetObject("pictureBox6.InitialImage");
-            pictureBox6.Location = new Point(197, 263);
-            pictureBox6.Margin = new Padding(2);
-            pictureBox6.Name = "pictureBox6";
-            pictureBox6.Size = new Size(91, 78);
-            pictureBox6.TabIndex = 7;
-            pictureBox6.TabStop = false;
-            // 
-            // pictureBox7
-            // 
-            pictureBox7.BackgroundImageLayout = ImageLayout.Center;
-            pictureBox7.BorderStyle = BorderStyle.Fixed3D;
-            pictureBox7.Image = (Image)resources.GetObject("pictureBox7.Image");
-            pictureBox7.InitialImage = (Image)resources.GetObject("pictureBox7.InitialImage");
-            pictureBox7.Location = new Point(307, 263);
-            pictureBox7.Margin = new Padding(2);
-            pictureBox7.Name = "pictureBox7";
-            pictureBox7.Size = new Size(91, 78);
-            pictureBox7.TabIndex = 8;
-            pictureBox7.TabStop = false;
+            btn_play.Location = new Point(198, 36);
+            btn_play.Name = "btn_play";
+            btn_play.Size = new Size(110, 38);
+            btn_play.TabIndex = 3;
+            btn_play.Text = "Play";
+            btn_play.UseVisualStyleBackColor = true;
+            btn_play.Click += btn_play_Click;
             // 
             // form_menu
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(491, 426);
-            Controls.Add(pictureBox7);
-            Controls.Add(pictureBox6);
-            Controls.Add(pictureBox5);
-            Controls.Add(pictureBox4);
-            Controls.Add(pictureBox3);
-            Controls.Add(pictureBox2);
-            Controls.Add(pictureBox1);
-            Controls.Add(logo_game2);
-            Controls.Add(logo_game1);
+            ClientSize = new Size(320, 396);
+            Controls.Add(btn_play);
+            Controls.Add(lb_highscoreList);
+            Controls.Add(lb_highscoreUsername);
+            Controls.Add(label1);
             Margin = new Padding(2);
             Name = "form_menu";
-            Text = "form_menu";
+            StartPosition = FormStartPosition.CenterScreen;
+            Text = "Main menu";
             Load += form_menu_Load;
-            ((System.ComponentModel.ISupportInitialize)logo_game1).EndInit();
-            ((System.ComponentModel.ISupportInitialize)logo_game2).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox4).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox5).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox6).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox7).EndInit();
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
 
-        private PictureBox logo_game1;
-        private PictureBox logo_game2;
-        private PictureBox pictureBox1;
-        private PictureBox pictureBox2;
-        private PictureBox pictureBox3;
-        private PictureBox pictureBox4;
-        private PictureBox pictureBox5;
-        private PictureBox pictureBox6;
-        private PictureBox pictureBox7;
+        private Label label1;
+        private Label lb_highscoreUsername;
+        private Label lb_highscoreList;
+        private Button btn_play;
     }
 }
