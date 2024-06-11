@@ -118,7 +118,7 @@
             // 
             lb_gamename.AutoSize = true;
             lb_gamename.Font = new Font("Segoe UI", 14F, FontStyle.Regular, GraphicsUnit.Point);
-            lb_gamename.Location = new Point(173, 52);
+            lb_gamename.Location = new Point(180, 54);
             lb_gamename.Margin = new Padding(2, 0, 2, 0);
             lb_gamename.Name = "lb_gamename";
             lb_gamename.Size = new Size(52, 25);
