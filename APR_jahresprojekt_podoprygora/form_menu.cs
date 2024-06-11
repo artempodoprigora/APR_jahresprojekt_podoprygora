@@ -14,9 +14,8 @@ namespace APR_jahresprojekt_podoprygora
         {
             using (form_minigame1 frm = new form_minigame1())
             {
-                this.Hide();
                 frm.ShowDialog();
-
+                this.Hide();
             }
         }
 
@@ -31,6 +30,14 @@ namespace APR_jahresprojekt_podoprygora
             form_minigame1 frm = new form_minigame1();
             this.Hide();
             frm.ShowDialog();
+        }
+
+        private void llb_back_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            form_login frm = new form_login();
+            this.Hide();
+            frm.ShowDialog();
+            
         }
     }
 }

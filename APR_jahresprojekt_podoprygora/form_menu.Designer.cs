@@ -32,6 +32,7 @@
             lb_highscoreUsername = new Label();
             lb_highscoreList = new Label();
             btn_play = new Button();
+            llb_back = new LinkLabel();
             SuspendLayout();
             // 
             // label1
@@ -64,7 +65,7 @@
             // 
             // btn_play
             // 
-            btn_play.Location = new Point(198, 41);
+            btn_play.Location = new Point(198, 36);
             btn_play.Name = "btn_play";
             btn_play.Size = new Size(110, 38);
             btn_play.TabIndex = 3;
@@ -72,11 +73,25 @@
             btn_play.UseVisualStyleBackColor = true;
             btn_play.Click += btn_play_Click;
             // 
+            // llb_back
+            // 
+            llb_back.ActiveLinkColor = Color.DimGray;
+            llb_back.AutoSize = true;
+            llb_back.LinkColor = Color.Black;
+            llb_back.Location = new Point(12, 9);
+            llb_back.Name = "llb_back";
+            llb_back.Size = new Size(32, 15);
+            llb_back.TabIndex = 4;
+            llb_back.TabStop = true;
+            llb_back.Text = "Back";
+            llb_back.LinkClicked += llb_back_LinkClicked;
+            // 
             // form_menu
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(320, 396);
+            Controls.Add(llb_back);
             Controls.Add(btn_play);
             Controls.Add(lb_highscoreList);
             Controls.Add(lb_highscoreUsername);
@@ -96,5 +111,6 @@
         private Label lb_highscoreUsername;
         private Label lb_highscoreList;
         private Button btn_play;
+        private LinkLabel llb_back;
     }
 }

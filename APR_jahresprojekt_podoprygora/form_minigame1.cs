@@ -371,6 +371,19 @@ namespace APR_jahresprojekt_podoprygora
                         }
                     }
                     break;
+                case "Escape":
+                    DialogResult dr = MessageBox.Show("Are you sure you want to leave the game?", "Exit", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                    if (dr == DialogResult.Yes)
+                    {
+                        form_menu frm = new form_menu();
+                        this.Hide();
+                        frm.ShowDialog();
+                    }
+                    else
+                    {
+                        return;
+                    }
+                    break;
             }
             if (ifPicWasMoved)
                 createNewPicture();
@@ -464,5 +477,16 @@ namespace APR_jahresprojekt_podoprygora
             }
         }
 
+        public void lb_score_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void llb_backToMenu_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            form_menu frm = new form_menu();
+            frm.ShowDialog();
+            this.Hide();
+        }
     }
 }
