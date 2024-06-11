@@ -58,7 +58,7 @@
             // form_minigame1
             // 
             AutoScaleMode = AutoScaleMode.Inherit;
-            ClientSize = new Size(258, 342);
+            ClientSize = new Size(244, 342);
             Controls.Add(lb_scoretext);
             Controls.Add(lb_score);
             Margin = new Padding(6, 5, 6, 5);
