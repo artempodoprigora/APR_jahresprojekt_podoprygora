@@ -42,7 +42,6 @@
             lb_score.Size = new Size(20, 24);
             lb_score.TabIndex = 16;
             lb_score.Text = "0";
-            lb_score.Click += lb_score_Click;
             // 
             // lb_scoretext
             // 
